@@ -1,0 +1,66 @@
+import { Link } from "react-router-dom";
+import { RiShoppingCartFill } from "react-icons/ri";
+// import useCart from "../../Hooks/useCart";
+import { IoMdCart } from "react-icons/io";
+
+const Navbar = () => {
+    // const { user, logout } = useAuth()
+    // const navigate = useNavigate()
+    // const [cart] = useCart()
+
+
+    const navOptions = <>
+        <Link to='/'><li className="cursor-pointer roboto font-medium text-xs  hover:ring-2 hover:ring-[#eb2a2e] duration-200 ease-in py-2 px-3 hover:rounded-md bg-transparent mx-3 uppercase font-roboto"><div>Home</div></li></Link>
+        <Link to='/aboutUs'><li className="cursor-pointer roboto font-medium text-xs  hover:ring-2 hover:ring-[#eb2a2e] duration-200 ease-in py-2 px-3 hover:rounded-md bg-transparent mx-3 uppercase font-roboto"><div>About Us</div></li></Link>
+        <Link to='/contactUs'><li className="cursor-pointer roboto font-medium text-xs  hover:ring-2 hover:ring-[#eb2a2e] duration-200 ease-in py-2 px-3 hover:rounded-md bg-transparent mx-3 uppercase font-roboto"><div>Contact Us</div></li></Link>
+
+    </>
+
+
+    // const handleLogOut = () => {
+    //     logout()
+    //         .then(
+    //             navigate('/')
+    //         )
+
+    // }
+    return (
+        <div className="">
+            <div className="navbar fixed z-10 bg-white bg-clip-padding blur-backdrop-filter px-4 shadow-sm">
+                <div className="navbar-start">
+                    <div className="dropdown">
+                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                        </div>
+                        <ul
+                            tabIndex={0}
+                            className=" menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            {navOptions}
+                        </ul>
+                    </div>
+                    <div className='ml-3 lg:ml-12 flex-1'>
+                        <div className='flex items-center'>
+                            <Link to='/'><p className="font-bold text-2xl uppercase dms">TANEX <br /><span className="roboto text-[14px]">I n t e r n a t i o n a l</span></p></Link>
+                        </div>
+                    </div>
+                </div>
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="menu-horizontal px-1">
+                        {navOptions}
+                    </ul>
+                </div>
+                <div className="navbar-end">
+                    <a className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-red-500 group">
+                        <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-red-700  group-hover:-mr-4 group-hover:-mt-4">
+                            <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"></span>
+                        </span>
+                        <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-red-600 group-hover:mb-12 group-hover:translate-x-0"></span>
+                        <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">Log in</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Navbar;
