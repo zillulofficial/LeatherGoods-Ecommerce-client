@@ -10,9 +10,9 @@ const Navbar = () => {
 
 
     const navOptions = <>
-        <Link to='/'><li className="cursor-pointer roboto font-medium text-xs  hover:ring-2 hover:ring-[#eb2a2e] duration-200 ease-in py-2 px-3 hover:rounded-md bg-transparent mx-3 uppercase font-roboto"><div>Home</div></li></Link>
-        <Link to='/aboutUs'><li className="cursor-pointer roboto font-medium text-xs  hover:ring-2 hover:ring-[#eb2a2e] duration-200 ease-in py-2 px-3 hover:rounded-md bg-transparent mx-3 uppercase font-roboto"><div>About Us</div></li></Link>
-        <Link to='/contactUs'><li className="cursor-pointer roboto font-medium text-xs  hover:ring-2 hover:ring-[#eb2a2e] duration-200 ease-in py-2 px-3 hover:rounded-md bg-transparent mx-3 uppercase font-roboto"><div>Contact Us</div></li></Link>
+        <Link to='/'><li className="cursor-pointer roboto font-medium text-xs  hover:ring-2 hover:ring-[#0057B7] duration-200 ease-in py-2 px-3 hover:rounded-md bg-transparent mx-3 uppercase font-roboto"><div>Home</div></li></Link>
+        <Link to='/aboutUs'><li className="cursor-pointer roboto font-medium text-xs  hover:ring-2 hover:ring-[#0057B7] duration-200 ease-in py-2 px-3 hover:rounded-md bg-transparent mx-3 uppercase font-roboto"><div>About Us</div></li></Link>
+        <Link to='/contactUs'><li className="cursor-pointer roboto font-medium text-xs  hover:ring-2 hover:ring-[#0057B7] duration-200 ease-in py-2 px-3 hover:rounded-md bg-transparent mx-3 uppercase font-roboto"><div>Contact Us</div></li></Link>
 
     </>
 
@@ -39,9 +39,9 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className='ml-3 lg:ml-12 flex-1'>
-                        <div className='flex items-center'>
-                            <Link to='/'><p className="font-bold text-[#eb2a2e] text-2xl uppercase dms">TANEX <br /><span className="roboto text-black text-[14px]">I n t e r n a t i o n a l</span></p></Link>
-                        </div>
+                        
+                        <Link to='/'><img className="w-20" src="https://i.postimg.cc/GhDYmQG9/tanex-interenational.png" alt="" /></Link>
+                        
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -50,11 +50,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/login' className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-red-500 group">
-                        <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-red-700  group-hover:-mr-4 group-hover:-mt-4">
+                    <Link to='/login' className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#0057B7dc] group">
+                        <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-[#0057B7]  group-hover:-mr-4 group-hover:-mt-4">
                             <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"></span>
                         </span>
-                        <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-red-600 group-hover:mb-12 group-hover:translate-x-0"></span>
+                        <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-[#0057B7d5] group-hover:mb-12 group-hover:translate-x-0"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">Log in</span>
                     </Link>
                 </div>
