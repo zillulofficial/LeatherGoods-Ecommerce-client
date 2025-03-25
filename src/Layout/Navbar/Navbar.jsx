@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RiShoppingCartFill } from "react-icons/ri";
-// import useCart from "../../Hooks/useCart";
 import { IoMdCart } from "react-icons/io";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
-    // const { user, logout } = useAuth()
-    // const navigate = useNavigate()
+    const { user, logout } = useAuth()
+    const navigate = useNavigate()
     // const [cart] = useCart()
 
 
@@ -17,13 +17,13 @@ const Navbar = () => {
     </>
 
 
-    // const handleLogOut = () => {
-    //     logout()
-    //         .then(
-    //             navigate('/')
-    //         )
+    const handleLogOut = () => {
+        logout()
+            .then(
+                navigate('/')
+            )
 
-    // }
+    }
     return (
         <div className="w-full">
             <div className="navbar max-w-[1580px] lg:ml-32 fixed flex justify-center z-10 bg-white bg-clip-padding blur-backdrop-filter px-4 ">
@@ -39,9 +39,9 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className='ml-3 lg:ml-12 flex-1'>
-                        
+
                         <Link to='/'><img className="w-20" src="https://i.postimg.cc/GhDYmQG9/tanex-interenational.png" alt="" /></Link>
-                        
+
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -50,13 +50,49 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/login' className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#0057B7dc] group">
-                        <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-[#0057B7]  group-hover:-mr-4 group-hover:-mt-4">
-                            <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"></span>
-                        </span>
-                        <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-[#0057B7d5] group-hover:mb-12 group-hover:translate-x-0"></span>
-                        <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">Log in</span>
-                    </Link>
+                    <ul className='menu-horizontal px-1'>
+
+
+                        {
+                            user ?
+                                <button onClick={handleLogOut} className=" mr-5 relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#0057B7dc] group">
+                                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-[#0057B7]  group-hover:-mr-4 group-hover:-mt-4">
+                                        <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"></span>
+                                    </span>
+                                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-[#0057B7d5] group-hover:mb-12 group-hover:translate-x-0"></span>
+                                    <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">Logout</span>
+                                </button>
+                                :
+                                <Link to='/login' className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#0057B7dc] group">
+                                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-[#0057B7]  group-hover:-mr-4 group-hover:-mt-4">
+                                        <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"></span>
+                                    </span>
+                                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-[#0057B7d5] group-hover:mb-12 group-hover:translate-x-0"></span>
+                                    <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">Log in</span>
+                                </Link>
+                        }
+                    </ul>
+
+                    {
+                        user &&
+                        <div className='dropdown dropdown-end z-50'>
+                            <div
+                                tabIndex={0}
+                                role='button'
+                                className='btn btn-ghost btn-circle avatar'
+                            >
+                                <div className='w-10 rounded-full my-anchor-element ' title={user?.email}>
+                                    <img
+                                        referrerPolicy='no-referrer'
+                                        alt='User Profile Photo'
+                                        src={user.photoURL ? user.photoURL : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
+                                    />
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+
                 </div>
             </div>
         </div>

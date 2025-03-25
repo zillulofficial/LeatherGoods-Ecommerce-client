@@ -63,7 +63,7 @@ const Login = () => {
                 <div className="lg:w-1/2 md:mb-12 mx-auto">
                     <div className='flex justify-between items-center'>
                         <div className='mb-20'>
-                            <Link to='/'><img className="w-52" src="https://i.postimg.cc/GhDYmQG9/tanex-interenational.png" alt="" /></Link>
+                            <Link to='/'><img className="w-40" src="https://i.postimg.cc/GhDYmQG9/tanex-interenational.png" alt="" /></Link>
                         </div>
                         <div className='flex gap-4 pt-3'>
                             <Link to='/login'><p className='text-[#0057B7] text-lg font-roboto'>Log In</p></Link>
@@ -73,7 +73,7 @@ const Login = () => {
                     </div>
                     <div data-aos="fade-right">
                         <h1 className="mt-4 text-[26px] text-[#111111] font-bold font-roboto mb-2">Log In</h1>
-                        <p className='text-lg font-roboto text-[#646464]'>Log in to continue in our website</p>
+                        <p className='text-lg font-roboto text-[#646464]'>Log in to continue to our website</p>
                     </div>
                 </div>
 
