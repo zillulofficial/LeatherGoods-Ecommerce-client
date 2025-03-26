@@ -17,6 +17,7 @@ const Root = () => {
 
             {/* Footer */}
             {noHeaderFooter || <Footer></Footer>}
+            {/* <Footer></Footer> */}
         </div>
     );
 };

@@ -9,7 +9,7 @@ import { FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className=" bg-[#0066ff10] pt-8">
+        <footer className="mt-24 bg-[#0066ff10] pt-8">
             <div className="container px-6 py-8 mx-auto">
 
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center">

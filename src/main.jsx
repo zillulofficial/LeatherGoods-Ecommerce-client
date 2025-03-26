@@ -10,6 +10,7 @@ import AuthProvider from './Provider/AuthProvider';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import ErrorPage from './Pages/ErrorPage/ErrorPage';
+import AboutUs from './Pages/AboutUs/AboutUs';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/aboutUs',
+        element: <AboutUs></AboutUs>
       }
     ]
   },

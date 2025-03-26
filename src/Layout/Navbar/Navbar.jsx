@@ -25,8 +25,8 @@ const Navbar = () => {
 
     }
     return (
-        <div className="w-full">
-            <div className="navbar max-w-[1580px] lg:ml-32 fixed flex justify-center z-10 bg-white bg-clip-padding blur-backdrop-filter px-4 ">
+        <div className="w-full sticky top-0 bg-white px-4 z-10">
+            <div className="navbar bg-white max-w-[1580px] lg:ml-32 flex justify-center">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
