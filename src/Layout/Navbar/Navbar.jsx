@@ -10,9 +10,9 @@ const Navbar = () => {
 
 
     const navOptions = <>
-        <Link to='/'><li className="cursor-pointer roboto font-medium text-xs  hover:ring-2 hover:ring-[#0057B7] duration-200 ease-in py-2 px-3 hover:rounded-md bg-transparent mx-3 uppercase font-roboto"><div>Home</div></li></Link>
-        <Link to='/aboutUs'><li className="cursor-pointer roboto font-medium text-xs  hover:ring-2 hover:ring-[#0057B7] duration-200 ease-in py-2 px-3 hover:rounded-md bg-transparent mx-3 uppercase font-roboto"><div>About Us</div></li></Link>
-        <Link to='/contactUs'><li className="cursor-pointer roboto font-medium text-xs  hover:ring-2 hover:ring-[#0057B7] duration-200 ease-in py-2 px-3 hover:rounded-md bg-transparent mx-3 uppercase font-roboto"><div>Contact Us</div></li></Link>
+        <Link to='/'><li className="cursor-pointer roboto font-medium text-xs  hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"><div>Home</div></li></Link>
+        <Link to='/aboutUs'><li className="cursor-pointer roboto font-medium text-xs  hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"><div>About Us</div></li></Link>
+        <Link to='/contactUs'><li className="cursor-pointer roboto font-medium text-xs  hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"><div>Contact Us</div></li></Link>
 
     </>
 
