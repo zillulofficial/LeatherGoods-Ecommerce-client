@@ -1,12 +1,18 @@
+import Aos from "aos";
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
 import { FaEye } from "react-icons/fa";
 import { GiFist } from "react-icons/gi";
 import { GiTargetLaser } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 const AboutUs = () => {
+    useEffect(() => {
+        Aos.init()
+    }, [])
     return (
         <div>
-            <div className="bg-cover bg-no-repeat md:h-[600px] h-[300px] bg-[url(https://i.postimg.cc/Px61cJqc/banner-1.jpg)] mb-32">
+            <div className="bg-cover bg-no-repeat md:h-[500px] h-[300px] bg-[url(https://i.postimg.cc/Px61cJqc/banner-1.jpg)] mb-32">
                 <div className="h-full bg-black opacity-65 mb-24">
                     <p className="flex drop-shadow-2xl h-full opacity-100 justify-center items-center text-white text-5xl md:text-9xl">About Us</p>
                 </div>
@@ -15,11 +21,11 @@ const AboutUs = () => {
             <div className="bg-[#0066ff10] py-16 mb-32">
                 <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-36 lg:mb-48">
                     <div className="w-1/2 relative">
-                        <img className="lg:w-3/5 md:w-3/4 rounded-xl hover:cursor-pointer transition-all duration-200 hover:ease-out hover:scale-95" src="https://i.postimg.cc/YqbPcvMx/bg-3.jpg" alt="" />
-                        <img className="lg:w-3/5 md:w-3/4 rounded-xl absolute right-5 top-2/3 border-white border-8 hover:cursor-pointer transition-all duration-200 hover:ease-out hover:scale-95"
+                        <img data-aos="fade-right" className="lg:w-3/5 md:w-3/4 rounded-xl hover:cursor-pointer transition-all duration-200 hover:ease-out hover:scale-95" src="https://i.postimg.cc/YqbPcvMx/bg-3.jpg" alt="" />
+                        <img data-aos="fade-left" className="lg:w-3/5 md:w-3/4 rounded-xl absolute right-5 top-2/3 border-white border-8 hover:cursor-pointer transition-all duration-200 hover:ease-out hover:scale-95"
                             src="https://i.postimg.cc/6pqmBBQx/bg-1.jpg" alt="" />
                     </div>
-                    <div className="md:w-[600px] h-full mx-auto flex flex-col justify-center lg:mt-48">
+                    <div  data-aos="fade-left"  className="md:w-[600px] h-full mx-auto flex flex-col justify-center lg:mt-48">
                         <p className="font-bold text-3xl md:text-5xl mb-8">We are qualified <br className="lg:block hidden " />& of experience <br className="lg:block hidden " />in this field</p>
                         <p className=" mb-5 ">Tanex International is a dynamic and trusted leather buying house operating from Bangladesh’s largest tannery hub. We have built a strong reputation for delivering premium leather to international markets.
                         </p>

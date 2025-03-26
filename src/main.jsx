@@ -11,6 +11,7 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import ErrorPage from './Pages/ErrorPage/ErrorPage';
 import AboutUs from './Pages/AboutUs/AboutUs';
+import ContactUs from './Pages/ContactUs/ContactUs';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
       {
         path: '/aboutUs',
         element: <AboutUs></AboutUs>
-      }
+      },
+      {
+        path: '/contactUs',
+        element: <ContactUs></ContactUs>
+      },
     ]
   },
 ]);
