@@ -42,14 +42,14 @@ const ContactUs = () => {
                 {/* contact us part */}
                 <div className="container mx-auto mb-24 flex flex-col-reverse gap-8 lg:gap-0 lg:flex-row">
                     <div className="flex-1/2">
-                        <div className="w-full">
+                        <div className="md:w-full md:h-full h-1/2 w-3/4 mx-auto ">
                             <iframe width="100%" height="511.48" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=511.48&amp;hl=en&amp;q=BSCIC%20Tannery%20Industrial%20Estate,%20Hemayetpur+(Tanex%20International)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                                 <a href="https://www.gps.ie/collections/drones/">buy drones</a>
                             </iframe>
                         </div>
                     </div>
                     <form onSubmit={handleContact} className="bg-[#0066ff0a] p-6 ">
-                        <div className="flex gap-7 mb-5">
+                        <div className="flex flex-col md:flex-row gap-7 mb-5">
                             <div>
                                 <p className="mb-2">Full Name</p>
                                 <input className="border rounded-md border-gray-300 pl-3 py-2" placeholder="name" type="text" name="name" id="" />
