@@ -15,15 +15,15 @@ const ContactUs = () => {
             position: "top-center"
         })
         const form = e.target
-        const email = form.email.value
-        const category = form.category.value
-        const check = form.check.value
-        const description = form.description.value
+        const name = form.name?.value
+        const email = form.email?.value
+        const phone = form.phone?.value
+        const description = form.description?.value
 
         const contactInfo = {
+            name,
             email,
-            category,
-            check,
+            phone,
             description
         }
 
@@ -50,16 +50,16 @@ const ContactUs = () => {
                             </div>
                             <div>
                                 <p className="mb-2">Phone</p>
-                                <input className="border rounded-md border-gray-300 pl-3 py-2" placeholder="Enter phone" type="text" name="name" id="" />
+                                <input className="border rounded-md border-gray-300 pl-3 py-2" placeholder="Enter phone" type="number" name="phone" id="" />
                             </div>
                             <div>
                                 <p className="mb-2">Email</p>
-                                <input className="border rounded-md border-gray-300 pl-3 py-2" placeholder="name@example.com" defaultValue={user?.email} type="text" name="name" id="" />
+                                <input className="border rounded-md border-gray-300 pl-3 py-2" placeholder="name@example.com" defaultValue={user?.email} type="text" name="email" id="" />
                             </div>
                         </div>
                         <p className="mb-2">Elaborate You Concerns</p>
                         <textarea name="description" className="mb-5 textarea textarea-bordered w-full" placeholder=""></textarea>
-                        <Link to='/login'>
+                        
                             <button class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#0057B7] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
                                 <span class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#0057B7] group-hover:h-full"></span>
                                 <span class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
@@ -70,7 +70,6 @@ const ContactUs = () => {
                                 </span>
                                 <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Submit</span>
                             </button>
-                        </Link>
                     </form>
                 </div>
                 {/* icons part */}

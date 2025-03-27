@@ -21,8 +21,8 @@ const AboutUs = () => {
             <div className="bg-[#0066ff10] py-16 mb-32">
                 <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center gap-36 lg:mb-48">
                     <div className="w-1/2 relative">
-                        <img data-aos="fade-right" className="lg:w-3/5 md:w-3/4 rounded-xl hover:cursor-pointer transition-all duration-200 hover:ease-out hover:scale-95" src="https://i.postimg.cc/YqbPcvMx/bg-3.jpg" alt="" />
-                        <img data-aos="fade-left" className="lg:w-3/5 md:w-3/4 rounded-xl absolute right-5 top-2/3 border-white border-8 hover:cursor-pointer transition-all duration-200 hover:ease-out hover:scale-95"
+                        <img data-aos="fade-right" className="lg:w-3/5 md:w-3/4 rounded-xl transition-all hover:cursor-pointer hover:scale-95 duration-500 ease" src="https://i.postimg.cc/YqbPcvMx/bg-3.jpg" alt="" />
+                        <img data-aos="fade-left" className="lg:w-3/5 md:w-3/4 rounded-xl absolute right-5 top-2/3 border-white border-4 transition-all hover:cursor-pointer hover:scale-95 duration-500 ease"
                             src="https://i.postimg.cc/6pqmBBQx/bg-1.jpg" alt="" />
                     </div>
                     <div  data-aos="fade-left"  className="md:w-[600px] h-full mx-auto flex flex-col justify-center lg:mt-48">
