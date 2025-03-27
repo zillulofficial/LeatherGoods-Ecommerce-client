@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { IoMdCart } from "react-icons/io";
 import useAuth from "../../Hooks/useAuth";
@@ -10,10 +10,16 @@ const Navbar = () => {
 
 
     const navOptions = <>
-        <Link to='/'><li className="cursor-pointer roboto font-medium text-xs  hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"><div>Home</div></li></Link>
-        <Link to='/aboutUs'><li className="cursor-pointer roboto font-medium text-xs  hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"><div>About Us</div></li></Link>
-        <Link to='/contactUs'><li className="cursor-pointer roboto font-medium text-xs  hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"><div>Contact Us</div></li></Link>
-
+        {/* className={({ isActive }) =>
+            isActive ? "text-red-500" : "text-black"
+        } */}
+        <NavLink to='/'  className={({ isActive }) => isActive ? "text-[#0057B7] cursor-pointer roboto font-medium text-xs  hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto" : 
+        "cursor-pointer roboto font-medium text-xs  hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>Home</div></NavLink>
+        <NavLink to='/aboutUs'  className={({ isActive }) => isActive ? "text-[#0057B7] cursor-pointer roboto font-medium text-xs  hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto" : 
+        "cursor-pointer roboto font-medium text-xs  hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>About Us</div></NavLink>
+        <NavLink to='/contactUs'  className={({ isActive }) => isActive ? "text-[#0057B7] cursor-pointer roboto font-medium text-xs  hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto" : 
+        "cursor-pointer roboto font-medium text-xs  hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>Contact Us</div></NavLink>
+     
     </>
 
 
@@ -25,7 +31,7 @@ const Navbar = () => {
 
     }
     return (
-        <div className="w-full sticky top-0 bg-white px-4 z-10">
+        <div className="w-full sticky top-0 bg-white px-4 z-30">
             <div className="navbar bg-white max-w-[1580px] lg:ml-32 flex justify-center">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -55,7 +61,7 @@ const Navbar = () => {
 
                         {
                             user ?
-                                <button onClick={handleLogOut} className=" mr-5 relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#0057B7dc] group">
+                                <button onClick={handleLogOut} className=" mr-5 relative cursor-pointer inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#0057B7dc] group">
                                     <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-[#0057B7]  group-hover:-mr-4 group-hover:-mt-4">
                                         <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"></span>
                                     </span>
@@ -63,7 +69,7 @@ const Navbar = () => {
                                     <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">Logout</span>
                                 </button>
                                 :
-                                <Link to='/login' className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#0057B7dc] group">
+                                <Link to='/login' className="relative cursor-pointer inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#0057B7dc] group">
                                     <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-[#0057B7]  group-hover:-mr-4 group-hover:-mt-4">
                                         <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"></span>
                                     </span>
