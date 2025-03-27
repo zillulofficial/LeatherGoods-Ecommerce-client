@@ -40,8 +40,14 @@ const ContactUs = () => {
                 <p className="text-4xl text-center mb-12">Get in touch with us</p>
 
                 {/* contact us part */}
-                <div className="container mx-auto mb-24 flex">
-                    <img className="w-1/2" src="https://i.postimg.cc/pTbRs2fH/map.jpg" alt="" />
+                <div className="container mx-auto mb-24 flex flex-col-reverse gap-8 lg:gap-0 lg:flex-row">
+                    <div className="flex-1/2">
+                        <div className="w-full">
+                            <iframe width="100%" height="511.48" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=511.48&amp;hl=en&amp;q=BSCIC%20Tannery%20Industrial%20Estate,%20Hemayetpur+(Tanex%20International)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                                <a href="https://www.gps.ie/collections/drones/">buy drones</a>
+                            </iframe>
+                        </div>
+                    </div>
                     <form onSubmit={handleContact} className="bg-[#0066ff0a] p-6 ">
                         <div className="flex gap-7 mb-5">
                             <div>
@@ -59,17 +65,17 @@ const ContactUs = () => {
                         </div>
                         <p className="mb-2">Elaborate You Concerns</p>
                         <textarea name="description" className="mb-5 textarea textarea-bordered w-full" placeholder=""></textarea>
-                        
-                            <button class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#0057B7] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
-                                <span class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#0057B7] group-hover:h-full"></span>
-                                <span class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
-                                    <svg class="w-5 h-5 text-[#00AEEF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                </span>
-                                <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
-                                    <svg class="w-5 h-5 text-[#00AEEF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                </span>
-                                <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Submit</span>
-                            </button>
+
+                        <button class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#0057B7] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
+                            <span class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#0057B7] group-hover:h-full"></span>
+                            <span class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
+                                <svg class="w-5 h-5 text-[#00AEEF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </span>
+                            <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
+                                <svg class="w-5 h-5 text-[#00AEEF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </span>
+                            <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Submit</span>
+                        </button>
                     </form>
                 </div>
                 {/* icons part */}
