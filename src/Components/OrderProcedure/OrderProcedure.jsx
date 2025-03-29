@@ -10,7 +10,7 @@ const OrderProcedure = () => {
             description:
                 "Once you select the required leather type, quality, and quantity, we will provide you with a competitive price quotation.Upon mutual agreement on pricing, we proceed to the next step.",
             number: 1,
-            color: "FBBC05",
+            color: "#FBBC05",
             verticalLine: true,
         },
         {
@@ -19,7 +19,7 @@ const OrderProcedure = () => {
             description:
                 "A formal contract will be signed between you (the buyer) and the seller/manufacturer/tanner to confirm the order.This contract will also be verified and acknowledged by Tanex International to ensure smooth processing.",
             number: 2,
-            color: "93C648",
+            color: "#93C648",
             verticalLine: true,
         },
         {
@@ -28,7 +28,7 @@ const OrderProcedure = () => {
             description:
                 "Based on the contract, the buyer will open a Letter of Credit (L/C) in favor of the seller or in favor of Tanex International (transferable). We assist in ensuring that all financial transactions comply with standard international trade practices.",
             number: 3,
-            color: "50B577",
+            color: "#50B577",
             verticalLine: true,
         },
         {
@@ -37,9 +37,10 @@ const OrderProcedure = () => {
             description:
                 "Once the L/C is confirmed, production and processing will begin. We conduct quality control inspections at different stages to maintain product standards. After final approval, the leather will be shipped as per the agreed terms.",
             number: 4,
-            color: "50B577",
+            color: "#50B577",
         },
     ];
+
     return (
         <div>
             <div className="container mx-auto flex flex-col lg:flex-row mb-24 md:w-3/4 lg:w-full">
@@ -70,6 +71,8 @@ const OrderProcedure = () => {
                     ))}
                 </div>
             </div>
+
+        
         </div>
     );
 };
