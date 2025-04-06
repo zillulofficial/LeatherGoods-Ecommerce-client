@@ -9,7 +9,7 @@ import { FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className="mt-24 bg-[#0066ff10] pt-8">
+        <footer className=" bg-[#0066ff10] pt-8">
             <div className="container px-6 py-8 mx-auto">
 
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center">
@@ -21,7 +21,7 @@ const Footer = () => {
                             <p className='text-[#232323] text-sm'>Tanex International is a dynamic and trusted leather buying house operating from Bangladesh’s largest tannery hub.</p>
                             <div className='mt-5 flex gap-4 items-center'>
                                 <div className='bg-[#0057B7] flex justify-center items-center rounded-full w-8 hover:bg-white duration-500 h-8'>
-                                    <Link><FaFacebookF className='text-white hover:text-[#0057B7] duration-500'></FaFacebookF></Link>
+                                    <Link to='https://www.facebook.com/pages/BSCIC%20Tannery%20Industrial%20Estate,%20Savar,%20Dhaka/159650511544443/'><FaFacebookF className='text-white hover:text-[#0057B7] duration-500'></FaFacebookF></Link>
                                 </div>
                                 <div className='bg-[#0057B7] flex justify-center items-center rounded-full w-8 h-8 hover:bg-white duration-500'>
                                     <Link><RiInstagramFill className='text-lg text-white hover:text-[#0057B7] duration-500'></RiInstagramFill></Link>

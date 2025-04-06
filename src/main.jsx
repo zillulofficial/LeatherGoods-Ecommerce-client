@@ -13,6 +13,12 @@ import ErrorPage from './Pages/ErrorPage/ErrorPage';
 import AboutUs from './Pages/AboutUs/AboutUs';
 import ContactUs from './Pages/ContactUs/ContactUs';
 import Home from './Pages/Home/Home';
+import Dashboard from './Layout/Dashboard/Dashboard';
+import Users from './Pages/Dashboard/Users';
+import Orders from './Pages/Dashboard/Orders';
+import Items from './Pages/Dashboard/Items';
+import Themes from './Pages/Dashboard/Themes';
+import Setting from './Pages/Dashboard/Setting';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +48,32 @@ const router = createBrowserRouter([
       },
     ]
   },
+  {
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children:[
+      {
+        path: 'users',
+        element:<Users></Users>
+      },
+      {
+        path: 'contacts',
+        element:<Orders></Orders>
+      },
+      {
+        path: 'item',
+        element:<Items></Items>
+      },
+      {
+        path: 'themes',
+        element:<Themes></Themes>
+      },
+      {
+        path: 'setting',
+        element:<Setting></Setting>
+      },
+    ]
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

@@ -9,9 +9,7 @@ const PaymentTerms = () => {
     return (
         <div className="bg-[url(https://i.postimg.cc/Y9WQvrbG/bg-7.jpg)] bg-fixed bg-cover bg-no-repeat  py-32">
             <div className="max-w-3/4 mx-auto flex flex-col lg:flex-row justify-center items-center gap-10">
-                <div className="bg-[#84ACFA] pt-[76px] pb-32 px-20 w-full">
-                    {/* data-aos="fade-up" data-aos-duration="1000"
-                data-aos="fade-up" data-aos-duration="1000" */}
+                <div data-aos="fade-up" data-aos-duration="1000" className="bg-[#84ACFA] pt-[76px] pb-32 px-20 w-full">
                     <div>
                         <p className="text-sm mb-10 text-blue-100">P A Y M E N T __ T E R M S</p>
                         <p className="md:text-4xl text-xl roboto font-bold uppercase mb-12">Payment Terms & Order<br className="hidden md:block" /> <span className="md:border-b-8  md:border-white">Requirements</span></p>
@@ -23,9 +21,7 @@ const PaymentTerms = () => {
                             options, lead times, and quality assurance, ensuring a smooth and transparent buying experience.</p>
                     </div>
                 </div>
-                <div className="bg-white py-16 px-20 w-full ">
-                    {/* data-aos="fade-up" data-aos-duration="1000"
-                data-aos="fade-up" data-aos-duration="1000" */}
+                <div                 data-aos="fade-up" data-aos-duration="1000" className="bg-white py-16 px-20 w-full ">
                     <div>
                         <p className="text-sm mb-6 text-[#84ACFA] uppercase">T e l e g r a p h i c __ T r a n s f e r</p>
                         <p className="text-[#777777] mb-12 quicksand">A Telegraphic Transfer (TT) is an electronic method of sending funds internationally, often used for business transactions and trade payments.</p>
@@ -39,7 +35,7 @@ const PaymentTerms = () => {
                         <p className="text-[#777777] mb-5 quicksand">To ensure efficient logistics and cost-effectiveness, we have set the following minimum order quantities:
 
                         </p>
-                        <div className="ml-5">
+                        <div className="md:ml-5">
                             <p className="text-[#777777] mb-2 quicksand">✔ Air Shipment: Minimum 1,000 square feet of leather.</p>
                             <p className="text-[#777777]  quicksand">✔ Sea Shipment: Minimum 3,000 square feet of leather.</p>
                         </div>

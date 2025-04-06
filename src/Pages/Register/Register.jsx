@@ -8,8 +8,11 @@ import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import axios from "axios";
 
 const Register = () => {
+    // const axiosPublic = useAxiosPublic()
     useEffect(() => {
         document.title = "JobSync | Register"
         Aos.init()
@@ -48,14 +51,26 @@ const Register = () => {
                     .then(res => {
                         setUser({ ...user, photoURL: photoURL, displayName: name })
                         console.log(res);
-                        navigate('/')
+                        const userInfo={
+                            name: name,
+                            photoURL: photoURL,
+                            email: email
+                        }
+                        axios.post('http://localhost:5000/users', userInfo)
+                            .then(res => {
+                                console.log(res.data);
+                                if (res.data?.insertedId) {
+                                    Swal.fire({
+                                        title: 'Congrats!',
+                                        text: 'Registered successfully',
+                                        icon: 'success',
+                                        confirmButtonText: 'Okay'
+                                    })
+                                    navigate('/')
+                                }
+                            })
                     })
-                Swal.fire({
-                    title: 'Congrats!',
-                    text: 'Registered successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Okay'
-                })
+
                 console.log(result.user)
             })
             .catch(error => console.log(error))
@@ -121,7 +136,7 @@ const Register = () => {
 
                         {/* Login Button  */}
                         <div className=" mt-8 md:flex md:items-center mb-12">
-                            <button className="w-1/3 relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#0057B7dc] group">
+                            <button className="cursor-pointer w-1/3 relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#0057B7dc] group">
                                 <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-[#0057B7]  group-hover:-mr-4 group-hover:-mt-4">
                                     <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"></span>
                                 </span>

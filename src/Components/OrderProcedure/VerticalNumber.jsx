@@ -1,5 +1,5 @@
-const VerticalNumber = ({num, color, verticalLine}) => {
-    console.log(color);
+const VerticalNumber = ({num, verticalLine}) => {
+    
     return (
         <div className="flex flex-col  items-center">
             <p className={`font-bold text-xl px-4 py-2 text-center bg-[#84ACFA] rounded-full`}>{num}</p>
