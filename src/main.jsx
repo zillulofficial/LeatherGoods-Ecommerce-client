@@ -19,6 +19,11 @@ import Orders from './Pages/Dashboard/Orders';
 import Items from './Pages/Dashboard/Items';
 import Themes from './Pages/Dashboard/Themes';
 import Setting from './Pages/Dashboard/Setting';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
@@ -51,26 +56,26 @@ const router = createBrowserRouter([
   {
     path: 'dashboard',
     element: <Dashboard></Dashboard>,
-    children:[
+    children: [
       {
         path: 'users',
-        element:<Users></Users>
+        element: <Users></Users>
       },
       {
         path: 'contacts',
-        element:<Orders></Orders>
+        element: <Orders></Orders>
       },
       {
         path: 'item',
-        element:<Items></Items>
+        element: <Items></Items>
       },
       {
         path: 'themes',
-        element:<Themes></Themes>
+        element: <Themes></Themes>
       },
       {
         path: 'setting',
-        element:<Setting></Setting>
+        element: <Setting></Setting>
       },
     ]
   }
@@ -79,7 +84,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </AuthProvider>
   </StrictMode>,
 )

@@ -3,7 +3,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 const Dashboard = () => {
     return (
         <div className="flex">
-            <div>
+            <div className="">
 
                 {/* dashboard for small device */}
                 <div className="dropdown">
@@ -160,7 +160,7 @@ const Dashboard = () => {
                     </aside>
                 </div>
             </div>
-            <div>
+            <div className="flex-1">
                 <Outlet></Outlet>
             </div>
         </div>

@@ -8,7 +8,7 @@ import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
+// import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import axios from "axios";
 
 const Register = () => {
