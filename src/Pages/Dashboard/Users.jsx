@@ -82,12 +82,12 @@ const Users = () => {
                             {
                                 users.map((user, i) => <tr key={user._id}>
                                     <th>{i + 1}</th>
-                                    <td className="h-16 w-16"><img className="rounded-md" src={user.photoURL} alt="" /></td>
+                                    <td className="w-16"><img className="rounded-md h-10 " src={user.photoURL} alt="" /></td>
                                     <td className=" ">{user?.name}</td>
                                     <td>{user.email ? user?.email : "user logged in without email"}</td>
                                     <td>
                                         {
-                                            user?.role === 'admin' ? "Admin" : <button onClick={() => handleSetAdmin(user)}><IoIosPeople className=" bg-[#84ACFA] p-2 w-10 h-10 text-2xl text-white rounded-md cursor-pointer"></IoIosPeople></button>
+                                            user?.role === 'admin' ? <p className="text-green-500">Admin</p> : <button onClick={() => handleSetAdmin(user)}><IoIosPeople className=" bg-[#84ACFA] p-2 w-10 h-10 text-2xl text-white rounded-md cursor-pointer"></IoIosPeople></button>
                                         }
                                     </td>
                                     <td className="flex justify-center">

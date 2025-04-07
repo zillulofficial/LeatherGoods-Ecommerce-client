@@ -2,25 +2,25 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { IoMdCart } from "react-icons/io";
 import useAuth from "../../Hooks/useAuth";
+import useAdmin from "../../Hooks/useAdmin";
 
 const Navbar = () => {
     const { user, logout } = useAuth()
     const navigate = useNavigate()
-    // const [cart] = useCart()
+    const [isAdmin]= useAdmin()
 
 
     const navOptions = <>
-        {/* className={({ isActive }) =>
-            isActive ? "text-red-500" : "text-black"
-        } */}
         <NavLink to='/'  className={({ isActive }) => isActive ? "text-[#0057B7] cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto" : 
         "cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>Home</div></NavLink>
         <NavLink to='/aboutUs'  className={({ isActive }) => isActive ? "text-[#0057B7] cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto" : 
         "cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>About Us</div></NavLink>
         <NavLink to='/contactUs'  className={({ isActive }) => isActive ? "text-[#0057B7] cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto" : 
         "cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>Contact Us</div></NavLink>
-        <NavLink to='/dashboard'  className={({ isActive }) => isActive ? "text-[#0057B7] cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto" : 
-        "cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>Dashboard</div></NavLink>
+        {
+            isAdmin? <NavLink to='/dashboard'  className={({ isActive }) => isActive ? "text-[#0057B7] cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto" : 
+            "cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>Dashboard</div></NavLink>: ''
+        }
      
     </>
 

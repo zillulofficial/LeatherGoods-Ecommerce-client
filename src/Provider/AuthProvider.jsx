@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 export const AuthContext= createContext()
 const auth= getAuth(app)
@@ -8,7 +9,7 @@ const auth= getAuth(app)
 
 const AuthProvider = ({children}) => {
     const [user, setUser]= useState()
-    // const axiosPublic= useAxiosPublic()
+    const axiosPublic= useAxiosPublic()
     const [loader, setLoader]= useState(true)
 
     const createUser = (email, password) => {
@@ -32,30 +33,24 @@ const AuthProvider = ({children}) => {
 
     
     useEffect(() => {
-        // const unSubscribe = onAuthStateChanged(auth, currentUser => {
-        //     const userEmail= currentUser?.email || user?.email
-        //     const loggedUser= {email: userEmail}
-        //     setUser(currentUser)
-        //     if (currentUser) {
-        //         axiosPublic.post(`/jwt`, loggedUser, {withCredentials: true})
-        //         .then(res =>{
-        //             console.log(res.data);
-        //         })
-                
-        //         setLoader(false)
-        //     }
-        //     else{
-        //         axiosPublic.post(`/logout`, loggedUser, {withCredentials: true})
-        //         .then(res =>{
-        //             console.log(res.data);
-        //         })
-                
-        //         setLoader(false)
-        //     }
-        // })
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
+            const userEmail= currentUser?.email || user?.email
+            const loggedUser= {email: userEmail}
+            setUser(currentUser)
             if (currentUser) {
-                setUser(currentUser)
+                axiosPublic.post(`/jwt`, loggedUser, {withCredentials: true})
+                .then(res =>{
+                    console.log(res.data);
+                })
+                
+                setLoader(false)
+            }
+            else{
+                axiosPublic.post(`/logout`, loggedUser, {withCredentials: true})
+                .then(res =>{
+                    console.log(res.data);
+                })
+                
                 setLoader(false)
             }
         })

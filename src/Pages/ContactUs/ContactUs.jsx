@@ -1,33 +1,36 @@
 import { IoCallOutline } from "react-icons/io5";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdMailOutline } from "react-icons/md";
-import { toast } from "react-toastify";
 import useAuth from "../../Hooks/useAuth";
 import { Link } from "react-router-dom";
 import { GiFist, GiTargetLaser } from "react-icons/gi";
 import { FaEye } from "react-icons/fa";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
 
 const ContactUs = () => {
+    const { register, handleSubmit, reset } = useForm()
     const { user } = useAuth()
-    const handleContact = e => {
-        e.preventDefault()
-        toast.success("concerns on console log", {
-            position: "top-center"
+    const axiosPublic= useAxiosPublic()
+    const onSubmit = async(data) =>{
+        
+        // toast.success("concerns on console log", {
+        //     position: "top-center"
+        // })
+        axiosPublic.post('/orders', data)
+        .then(res=>{
+            
+            if(res.data.insertedId){
+                reset()
+                Swal.fire({
+                    title: 'Success!',
+                    text: `Order added successfully`,
+                    icon: 'success',
+                    confirmButtonText: 'Okay'
+                })
+            }
         })
-        const form = e.target
-        const name = form.name?.value
-        const email = form.email?.value
-        const phone = form.phone?.value
-        const description = form.description?.value
-
-        const contactInfo = {
-            name,
-            email,
-            phone,
-            description
-        }
-
-        console.log(contactInfo);
     }
     return (
         <div>
@@ -48,25 +51,25 @@ const ContactUs = () => {
                             </iframe>
                         </div>
                     </div>
-                    <form onSubmit={handleContact} className="bg-[#0066ff0a] p-6 ">
+                    <form onSubmit={handleSubmit(onSubmit)} className="bg-[#0066ff0a] p-6 ">
                         <div className="flex flex-col md:flex-row gap-7 mb-5">
                             <div>
                                 <p className="mb-2">Full Name</p>
-                                <input className="border rounded-md border-gray-300 pl-3 py-2" placeholder="name" type="text" name="name" id="" />
+                                <input {...register("name", { required: true })} className="border rounded-md border-gray-300 pl-3 py-2" placeholder="name" type="text"/>
                             </div>
                             <div>
                                 <p className="mb-2">Phone</p>
-                                <input className="border rounded-md border-gray-300 pl-3 py-2" placeholder="Enter phone" type="number" name="phone" id="" />
+                                <input {...register("phone", { required: true })} className="border rounded-md border-gray-300 pl-3 py-2" placeholder="Enter phone" type="number"/>
                             </div>
                             <div>
                                 <p className="mb-2">Email</p>
-                                <input className="border rounded-md border-gray-300 pl-3 py-2" placeholder="name@example.com" defaultValue={user?.email} type="text" name="email" id="" />
+                                <input {...register("email", { required: true })} className="border rounded-md border-gray-300 pl-3 py-2" placeholder="name@example.com" defaultValue={user?.email} type="text"/>
                             </div>
                         </div>
                         <p className="mb-2">Elaborate You Concerns</p>
-                        <textarea name="description" className="mb-5 textarea textarea-bordered w-full" placeholder=""></textarea>
+                        <textarea {...register("description", { required: true })} className="mb-5 textarea textarea-bordered w-full" placeholder=""></textarea>
 
-                        <button class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#0057B7] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
+                        <button class="cursor-pointer relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#0057B7] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
                             <span class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#0057B7] group-hover:h-full"></span>
                             <span class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
                                 <svg class="w-5 h-5 text-[#00AEEF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>

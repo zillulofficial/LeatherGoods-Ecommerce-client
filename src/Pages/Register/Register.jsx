@@ -8,11 +8,10 @@ import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-// import useAxiosPublic from "../../Hooks/useAxiosPublic";
-import axios from "axios";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
-    // const axiosPublic = useAxiosPublic()
+    const axiosPublic = useAxiosPublic()
     useEffect(() => {
         document.title = "JobSync | Register"
         Aos.init()
@@ -56,7 +55,7 @@ const Register = () => {
                             photoURL: photoURL,
                             email: email
                         }
-                        axios.post('http://localhost:5000/users', userInfo)
+                        axiosPublic.post('/users', userInfo)
                             .then(res => {
                                 console.log(res.data);
                                 if (res.data?.insertedId) {
