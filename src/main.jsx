@@ -23,6 +23,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import AddItems from './Pages/Dashboard/AddItems';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: 'contacts',
         element: <Orders></Orders>
+      },
+      {
+        path: 'addItem',
+        element: <AddItems></AddItems>
       },
       {
         path: 'item',

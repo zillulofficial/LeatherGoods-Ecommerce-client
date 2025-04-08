@@ -78,11 +78,11 @@ const Register = () => {
     return (
         <div className='md:min-h-screen flex justify-center items-center mb-10 md:mb-0'>
             {/* content part */}
-            <div className="flex-1">
+            <div className="flex-1 lg:w-full container mx-auto">
                 <div className="lg:w-1/2 mb-12 mx-auto">
                     <div className='flex justify-between items-center'>
                         <div className='mb-20'>
-                            <Link to='/'><img className="w-40" src="https://i.postimg.cc/GhDYmQG9/tanex-interenational.png" alt="" /></Link>
+                            <Link to='/'><img className="lg:w-40 w-24" src="https://i.postimg.cc/GhDYmQG9/tanex-interenational.png" alt="" /></Link>
                         </div>
                         <div className='flex gap-4 pt-3'>
                             <Link to='/login'><p className=' text-lg font-roboto'>Log In</p></Link>
@@ -147,7 +147,7 @@ const Register = () => {
                     </form>
                 </div>
             </div>
-            <div data-aos="fade-left" className='flex-1 hidden md:block'>
+            <div data-aos="fade-left" className='flex-1 hidden lg:block'>
                 {/* picture part */}
                 <img className='w-full' src="https://i.postimg.cc/1RVCpM2r/registration.jpg" alt="" />
             </div>
