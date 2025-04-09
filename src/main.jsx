@@ -24,6 +24,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import AddItems from './Pages/Dashboard/AddItems';
+import ProductPage from './Pages/ProductPage/ProductPage';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: '/contactUs',
         element: <ContactUs></ContactUs>
+      },
+      {
+        path: '/leatherCollection',
+        element: <ProductPage></ProductPage>
       },
     ]
   },
