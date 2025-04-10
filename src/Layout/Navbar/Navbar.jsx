@@ -17,6 +17,8 @@ const Navbar = () => {
         "cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>About Us</div></NavLink>
         <NavLink to='/contactUs'  className={({ isActive }) => isActive ? "text-[#0057B7] cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto" : 
         "cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>Contact Us</div></NavLink>
+        <NavLink to='/leatherCollection/Bags'  className={({ isActive }) => isActive ? "text-[#0057B7] cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto" : 
+        "cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>Products</div></NavLink>
         {
             isAdmin? <NavLink to='/dashboard'  className={({ isActive }) => isActive ? "text-[#0057B7] cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto" : 
             "cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>Dashboard</div></NavLink>: ''
@@ -42,7 +44,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className=" menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className=" menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 pl-5 shadow">
                             {navOptions}
                         </ul>
                     </div>

@@ -26,6 +26,7 @@ import {
 import AddItems from './Pages/Dashboard/AddItems';
 import ProductPage from './Pages/ProductPage/ProductPage';
 import UpdateItem from './Pages/UpdateItem/UpdateItem';
+import PrivateRoute from './Routes/PrivateRoute/PrivateRoute';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -55,8 +56,8 @@ const router = createBrowserRouter([
         element: <ContactUs></ContactUs>
       },
       {
-        path: '/leatherCollection',
-        element: <ProductPage></ProductPage>
+        path: '/leatherCollection/:category',
+        element: <PrivateRoute><ProductPage></ProductPage></PrivateRoute>
       },
     ]
   },
