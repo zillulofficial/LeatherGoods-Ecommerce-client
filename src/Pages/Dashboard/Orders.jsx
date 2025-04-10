@@ -9,7 +9,6 @@ import { IoPersonOutline } from "react-icons/io5";
 import { AiTwotoneMail } from "react-icons/ai";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { MdLibraryBooks } from "react-icons/md";
-import { toast } from "react-toastify";
 
 const Orders = () => {
     const axiosSecure = useAxiosSecure()
@@ -21,23 +20,6 @@ const Orders = () => {
             return res.data
         }
     })
-    const handleSetAdmin = order => {
-        axiosSecure.patch(`/orders/admin/${order._id}`)
-            .then(res => {
-                console.log(res.data);
-                if (res.data.modifiedCount > 0) {
-                    refetch()
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: `${order.name} is now an admin!!`,
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                }
-            })
-
-    }
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",

@@ -25,6 +25,7 @@ import {
 } from '@tanstack/react-query'
 import AddItems from './Pages/Dashboard/AddItems';
 import ProductPage from './Pages/ProductPage/ProductPage';
+import UpdateItem from './Pages/UpdateItem/UpdateItem';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -74,6 +75,11 @@ const router = createBrowserRouter([
       {
         path: 'addItem',
         element: <AddItems></AddItems>
+      },
+      {
+        path: 'update/:id',
+        element: <UpdateItem></UpdateItem>,
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/item/${params.id}`)
       },
       {
         path: 'item',
