@@ -13,7 +13,7 @@ const LeatherCollection = () => {
             {/* Gallery section */}
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {/* picture 01 */}
-                <Link to='/leatherCollection'>
+                <Link to='/leatherCollection/Bags'>
                     <div className='relative cursor-pointer h-[400px] overflow-hidden group '>
                         <div className=" flex flex-col justify-end w-full h-full px-8 py-6 transition-opacity duration-700 opacity-0 brightness-100 hover:brightness-75 backdrop-blur-sm group-hover:opacity-100">
                             <h2 className="mt-4 text-3xl font-semibold text-white capitalize mb-3">Semi-Aniline & <br className='hidden lg:block' /><span className="md:border-b-8  md:border-[#0057B7]">Burnishable</span> Finished Leather</h2>
@@ -23,7 +23,7 @@ const LeatherCollection = () => {
                     </div>
                 </Link>
                 {/* picture 02 */}
-                <Link to='/leatherCollection'>
+                <Link to='/leatherCollection/Bags'>
                     <div className='relative cursor-pointer h-[400px] overflow-hidden group '>
                         <div className=" flex flex-col justify-end w-full h-full px-8 py-6 transition-opacity duration-700 opacity-0 brightness-100 hover:brightness-75 backdrop-blur-sm group-hover:opacity-100">
                             <h2 className="mt-4 text-3xl font-semibold text-white capitalize mb-3">Full Chrome  <br className='hidden lg:block' /><span className="md:border-b-8  md:border-[#0057B7]">Softy</span> Nappa</h2>
@@ -33,7 +33,7 @@ const LeatherCollection = () => {
                     </div>
                 </Link>
                 {/* picture 03 */}
-                <Link to='/leatherCollection'>
+                <Link to='/leatherCollection/Bags'>
                     <div className='relative cursor-pointer h-[400px] overflow-hidden group '>
                         <div className=" flex flex-col justify-end w-full h-full px-8 py-6 transition-opacity duration-700 opacity-0 brightness-100 hover:brightness-75 backdrop-blur-sm group-hover:opacity-100">
                             <h2 className="mt-4 text-3xl font-semibold text-white capitalize mb-3">Full Chrome <br className='hidden lg:block' />Softy Nappa <span className="md:border-b-8  md:border-[#0057B7]">Crust </span> Leather</h2>
@@ -43,7 +43,7 @@ const LeatherCollection = () => {
                     </div>
                 </Link>
                 {/* picture 04 */}
-                <Link to='/leatherCollection'>
+                <Link to='/leatherCollection/Bags'>
                     <div className='relative cursor-pointer h-[400px] overflow-hidden group '>
                         <div className=" flex flex-col justify-end w-full h-full px-8 py-6 transition-opacity duration-700 opacity-0 brightness-100 hover:brightness-75 backdrop-blur-sm group-hover:opacity-100">
                             <h2 className="mt-4 text-3xl font-semibold text-white capitalize mb-3">Full Chrome <span className="md:border-b-8  md:border-[#0057B7]">Drum-Dyed</span> <br className='hidden lg:block' />Cow Crust Leather</h2>
@@ -53,7 +53,7 @@ const LeatherCollection = () => {
                     </div>
                 </Link>
                 {/* picture 05 */}
-                <Link to='/leatherCollection'>
+                <Link to='/leatherCollection/Bags'>
                     <div className='relative cursor-pointer h-[400px] overflow-hidden group '>
                         <div className=" flex flex-col justify-end w-full h-full px-8 py-6 transition-opacity duration-700 opacity-0 brightness-100 hover:brightness-75 backdrop-blur-sm group-hover:opacity-100">
                             <h2 className="mt-4 text-3xl font-semibold text-white capitalize mb-3">Full Vegetable & <br className='hidden lg:block' /><span className="md:border-b-8  md:border-[#0057B7]">Semi-Chrome </span> Natural <span className="md:border-b-8  md:border-[#0057B7]">Milled Crust</span> & Finished Leather</h2>
@@ -63,7 +63,7 @@ const LeatherCollection = () => {
                     </div>
                 </Link>
                 {/* picture 06 */}
-                <Link to='/leatherCollection'>
+                <Link to='/leatherCollection/Bags'>
                     <div className='relative cursor-pointer h-[400px] overflow-hidden group '>
                         <div className=" flex flex-col justify-end w-full h-full px-8 py-6 transition-opacity duration-700 opacity-0 brightness-100 hover:brightness-75 backdrop-blur-sm group-hover:opacity-100">
                             <h2 className="mt-4 text-3xl font-semibold text-white capitalize mb-3">Natural Milled Softy <br className='hidden lg:block' />Shoe <span className="md:border-b-8  md:border-[#0057B7]">Upper Finished</span> Leather</h2>
@@ -73,7 +73,7 @@ const LeatherCollection = () => {
                     </div>
                 </Link>
                 {/* picture 07 */}
-                <Link to='/leatherCollection'>
+                <Link to='/leatherCollection/Bags'>
                     <div className='relative cursor-pointer h-[400px] overflow-hidden group '>
                         <div className=" flex flex-col justify-end w-full h-full px-8 py-6 transition-opacity duration-700 opacity-0 brightness-100 hover:brightness-75 backdrop-blur-sm group-hover:opacity-100">
                             <h2 className="mt-4 text-3xl font-semibold text-white capitalize mb-3"><span className="md:border-b-8  md:border-[#0057B7]">High-Quality </span><br className='hidden lg:block' />Finished Lining Leather </h2>
@@ -83,7 +83,7 @@ const LeatherCollection = () => {
                     </div>
                 </Link>
                 {/* picture 08 */}
-                <Link to='/leatherCollection'>
+                <Link to='/leatherCollection/Bags'>
                     <div className='relative cursor-pointer h-[400px] overflow-hidden group '>
                         <div className=" flex flex-col justify-end w-full h-full px-8 py-6 transition-opacity duration-700 opacity-0 brightness-100 hover:brightness-75 backdrop-blur-sm group-hover:opacity-100">
                             <h2 className="mt-4 text-3xl font-semibold text-white capitalize mb-3">Semi-Chrome <br className='hidden lg:block' />Shoe <span className="md:border-b-8  md:border-[#0057B7]">Upper Crust</span> Leather</h2>
@@ -93,7 +93,7 @@ const LeatherCollection = () => {
                     </div>
                 </Link>
                 {/* picture 09 */}
-                <Link to='/leatherCollection'>
+                <Link to='/leatherCollection/Bags'>
                     <div className='relative cursor-pointer h-[400px] overflow-hidden group '>
                         <div className=" flex flex-col justify-end w-full h-full px-8 py-6 transition-opacity duration-700 opacity-0 brightness-100 hover:brightness-75 backdrop-blur-sm group-hover:opacity-100">
                             <h2 className="mt-4 text-3xl font-semibold text-white capitalize mb-3"><span className="md:border-b-8  md:border-[#0057B7]"> Chrome-Free</span> Crust <br className='hidden lg:block' />& Finished Leather</h2>

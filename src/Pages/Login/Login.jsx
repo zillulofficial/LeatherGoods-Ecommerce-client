@@ -17,7 +17,7 @@ const Login = () => {
     const { login, user } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
-    const from = location?.state || '/';
+    const from = location?.state?.from?.pathname || '/';
     useEffect(() => {
         if (user) {
             navigate('/')

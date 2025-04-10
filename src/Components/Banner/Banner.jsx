@@ -13,7 +13,7 @@ import { FaHandshake } from "react-icons/fa";
 
 const Banner = () => {
     return (
-        <div className="relative lg:mb-56 md:mb-[430px]">
+        <div className="relative lg:mb-56 mb-32">
             <div className=' mb-16'>
                 <Swiper
                     slidesPerView={1}
@@ -91,7 +91,7 @@ const Banner = () => {
 
                 {/* why choose us section */}
                 {/*  */}
-                <div className='md:absolute lg:-bottom-32 md:-bottom-80 md:left-1/12 z-10 w-1/2 md:w-full container mx-auto bg-white shadow-2xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+                <div className='hidden lg:block md:absolute lg:-bottom-32 md:-bottom-80 md:left-1/12 z-10 w-1/2 md:w-full container mx-auto bg-white shadow-2xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                     <div className=" text-center py-12 px-4">
                         <LiaIndustrySolid className="md:text-6xl text-4xl flex justify-center w-full mb-3"></LiaIndustrySolid>
                         <p className="text-md text-[#00000080]">Extensive industry expertise</p>

@@ -8,6 +8,7 @@ import { RiInstagramFill } from "react-icons/ri";
 import { FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
     return (
         <footer className=" bg-[#0066ff10] pt-8">
             <div className="container px-6 py-8 mx-auto">
@@ -99,7 +100,7 @@ const Footer = () => {
                 <div className="container flex flex-col items-center justify-between mx-auto space-y-4 sm:space-y-0 sm:flex-row">
 
                     <div className='flex justify-center w-full'>
-                        <p className=" text-[#232323]">© Copyright 2025. All Rights Reserved.</p>
+                        <p className=" text-[#232323]">© Copyright {currentYear}. All Rights Reserved.</p>
                     </div>
                 </div>
             </div>

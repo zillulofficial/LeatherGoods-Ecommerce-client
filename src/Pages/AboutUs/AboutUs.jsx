@@ -30,7 +30,7 @@ const AboutUs = () => {
                         <p className=" mb-5 ">Tanex International is a dynamic and trusted leather buying house operating from Bangladesh’s largest tannery hub. We have built a strong reputation for delivering premium leather to international markets.
                         </p>
                         <p className=" mb-8 mx-auto"> Our commitment to ethical sourcing, sustainability, and customer satisfaction sets us apart in the leather industry.</p>
-                        <Link to='/login'>
+                        <Link to='/register'>
                             <button class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#0057B7] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
                                 <span class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#0057B7] group-hover:h-full"></span>
                                 <span class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">

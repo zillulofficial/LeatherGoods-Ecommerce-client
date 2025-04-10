@@ -40,7 +40,7 @@ const ProductPage = () => {
                             {tabs.map((tab, index) => (
                                 <Tab
                                     key={index}
-                                    className="relative uppercase pb-1 text-lg text-gray-500 cursor-pointer hover:text-[#0057B7] transition-colors ease-in mb-12"
+                                    className="relative uppercase pb-1 md:text-lg text-gray-500 cursor-pointer hover:text-[#0057B7] transition-colors ease-in mb-12"
                                     selectedClassName="text-primary border-b-2 border-primary"
                                 >
                                     {tab}
