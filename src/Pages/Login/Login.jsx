@@ -17,7 +17,7 @@ const Login = () => {
     const { login, user } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
-    const from = location?.state?.from?.pathname || '/';
+    const from = location?.state || '/';
     useEffect(() => {
         if (user) {
             navigate('/')
@@ -33,8 +33,7 @@ const Login = () => {
         // console.log(email, password)
         login(email, password)
             .then((result) => {
-                const loggedInUser = result.user
-                console.log(loggedInUser);
+
                 if (result.user) {
                     navigate(from)
                     Swal.fire({
@@ -44,7 +43,7 @@ const Login = () => {
                         confirmButtonText: 'Okay'
                     })
                 }
-                console.log(result)
+                // console.log(result)
             })
             .catch(() => {
                 Swal.fire({
@@ -83,8 +82,8 @@ const Login = () => {
                         <div className="form-control relative flex items-center">
                             <input type="email" name="email" placeholder="Email address" className="pl-4 block w-full py-3 text-gray-700 bg-white border-b-[1px]" />
                             <span className="absolute top-3 right-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#9c9c9c] text-xl" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#9c9c9c] text-xl" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </span>
 

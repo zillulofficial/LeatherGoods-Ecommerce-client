@@ -18,8 +18,8 @@ const ErrorPage = () => {
                         <div className="flex items-center mt-6 gap-x-3 justify-center lg:justify-start">
                             <button onClick={handleBackButton} className="flex items-center justify-center w-1/2 px-5 py-2 text-sm rounded-lg gap-x-2 sm:w-auto
                              text-gray-700 duration-200 bg-white border border-[#0a65fc] hover:text-[#0a65fc] ">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 rtl:rotate-180">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
                                 </svg>
 
 

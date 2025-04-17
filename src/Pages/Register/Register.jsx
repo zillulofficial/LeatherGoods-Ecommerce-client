@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
-import { IoPersonSharp } from "react-icons/io5";
+import { IoCloudUploadOutline, IoPersonSharp } from "react-icons/io5";
 import { FaCamera } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
@@ -20,20 +20,40 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
     const { createUser, user, setUser, updateUserProfile } = useAuth()
     const navigate = useNavigate()
+    const [imageURL, setImageURL] = useState('')
 
     useEffect(() => {
         if (user) {
             navigate('/')
         }
     }, [])
+    const handleFileUpload = async (e) => {
+        const file = e.target.files[0]
+
+        if (!file) return
+
+        const data = new FormData()
+        data.append('file', file)
+        data.append("upload_preset", "Tanex_Interenational")
+        data.append("cloud_name", "dzs02ilah")
+
+        const res = await fetch('https://api.cloudinary.com/v1_1/dzs02ilah/image/upload', {
+            method: "POST",
+            body: data
+        })
+
+        const uploadedImageURL = await res.json()
+
+        setImageURL(uploadedImageURL.url);
+    }
     const handleSubmit = e => {
         e.preventDefault()
         const form = e.target
         const name = form.name.value
-        const photoURL = form.photoURL.value
+        const photoURL = imageURL
         const email = form.email.value
         const password = form.password.value
-        console.log(name, photoURL, email, password)
+        // console.log(name, photoURL, email, password)
         if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
             Swal.fire({
                 title: 'OOPS!',
@@ -49,15 +69,16 @@ const Register = () => {
                 updateUserProfile(name, photoURL)
                     .then(res => {
                         setUser({ ...user, photoURL: photoURL, displayName: name })
-                        console.log(res);
-                        const userInfo={
+                        // console.log(res);
+                        const userInfo = {
                             name: name,
                             photoURL: photoURL,
                             email: email
                         }
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
-                                console.log(res.data);
+                                // console.log(res.data);
+                                
                                 if (res.data?.insertedId) {
                                     Swal.fire({
                                         title: 'Congrats!',
@@ -67,6 +88,7 @@ const Register = () => {
                                     })
                                     navigate('/')
                                 }
+                                
                             })
                     })
 
@@ -99,6 +121,12 @@ const Register = () => {
                 {/* input fields */}
                 <div data-aos="fade-right" className="mt-8 lg:w-1/2 lg:mt-0 mx-auto">
                     <form onSubmit={handleSubmit} className=" w-full lg:max-w-xl">
+                        <div className='mb-5 w-64 border border-dashed p-10 flex flex-col gap-5 justify-center items-center'>
+                            <IoCloudUploadOutline className='text-6xl'></IoCloudUploadOutline>
+                            <div>
+                                <input onChange={handleFileUpload} className='cursor-pointer text-end border w-full rounded-md  pl-3 py-2' type="file" id="" />
+                            </div>
+                        </div>
                         <div className="form-control relative flex items-center mb-4">
                             <input type="name" name="name" placeholder="Name" className="pl-4 block w-full py-3 text-gray-700 bg-white border-b-[1px]" />
                             <span className="absolute top-3 right-4">
@@ -106,18 +134,18 @@ const Register = () => {
                             </span>
 
                         </div>
-                        <div className="form-control relative flex items-center mb-4">
+                        {/* <div className="form-control relative flex items-center mb-4">
                             <input type="photo" name="photoURL" placeholder="PhotoURL" className="pl-4 block w-full py-3 text-gray-700 bg-white border-b-[1px]" required />
                             <span className="absolute top-3 right-4">
                                 <FaCamera className="text-[#9c9c9c] text-xl"></FaCamera>
                             </span>
 
-                        </div>
+                        </div> */}
                         <div className="form-control relative flex items-center">
                             <input type="email" name="email" placeholder="Email address" className="pl-4 block w-full py-3 text-gray-700 bg-white border-b-[1px]" required />
                             <span className="absolute top-3 right-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#9c9c9c] text-xl" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#9c9c9c] text-xl" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </span>
 
