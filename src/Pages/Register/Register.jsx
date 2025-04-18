@@ -3,7 +3,6 @@ import { FaEye } from "react-icons/fa";
 import { IoMdEyeOff } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCloudUploadOutline, IoPersonSharp } from "react-icons/io5";
-import { FaCamera } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import Aos from 'aos'
@@ -92,7 +91,7 @@ const Register = () => {
                             })
                     })
 
-                console.log(result.user)
+                // console.log(result.user)
             })
             .catch(error => console.log(error))
     }
