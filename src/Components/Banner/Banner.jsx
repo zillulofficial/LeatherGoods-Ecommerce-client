@@ -91,6 +91,7 @@ const Banner = () => {
                             </Link>
                         </div>
                     </SwiperSlide>
+                    
                 </Swiper>
 
                 {/* why choose us section */}
