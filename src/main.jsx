@@ -27,6 +27,7 @@ import AddItems from './Pages/Dashboard/AddItems';
 import ProductPage from './Pages/ProductPage/ProductPage';
 import UpdateItem from './Pages/UpdateItem/UpdateItem';
 import PrivateRoute from './Routes/PrivateRoute/PrivateRoute';
+import ProductDetails from './Pages/ProductDetails/ProductDetails';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
       {
         path: '/leatherCollection/:category',
         element: <PrivateRoute><ProductPage></ProductPage></PrivateRoute>
+      },
+      {
+        path: '/Collection/:id',
+        element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/item/${params.id}`)
       },
     ]
   },

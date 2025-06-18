@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import { useForm } from "react-hook-form";
@@ -11,6 +11,7 @@ const UpdateItem = () => {
     const [imageURL, setImageURL] = useState('')
     const axiosSecure = useAxiosSecure()
     const item = useLoaderData()
+    const navigate= useNavigate()
 
     const handleFileUpload = async (e) => {
         const file = e.target.files[0]
@@ -45,6 +46,7 @@ const UpdateItem = () => {
 
                 if (res.data.modifiedCount) {
                     reset()
+                    navigate('/dashboard/item')
                     Swal.fire({
                         title: 'Success!',
                         text: `Product added successfully`,
