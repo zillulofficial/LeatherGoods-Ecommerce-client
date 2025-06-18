@@ -13,7 +13,7 @@ const PaymentTerms = () => {
                     <div>
                         <p className="text-sm mb-10 text-blue-100">P A Y M E N T __ T E R M S</p>
                         <p className="md:text-4xl text-xl roboto font-bold uppercase mb-12">Payment Terms & Order<br className="hidden md:block" /> <span className="md:border-b-8  md:border-white">Requirements</span></p>
-                        <p className="mb-5">At Tanex International, we ensure secure and hassle-free transactions with flexible payment options,
+                        <p className="mb-5">At Velin International, we ensure secure and hassle-free transactions with flexible payment options,
                             including bank transfers, L/C, and wire transfers. </p>
                         <p className="mb-5">A deposit may be required for order processing, with
                             the balance due before shipment. </p>

@@ -7,7 +7,7 @@ const LeatherCollection = () => {
             <div data-aos="fade-up" data-aos-duration="1000" className='text-center mb-32'>
                 <p className=" mb-8 text-blue-400">Welcome to Tanex</p>
                 <p className="text-5xl roboto font-bold uppercase mb-12">Our <span className="md:border-b-8  md:border-[#84ACFA]">Leather Collection </span> & Support</p>
-                <p className='text-lg text-[#777777]'>At Tanex International, we specialize in supplying top-quality finished and crust leather made from <br className='hidden lg:block' /> Cow, Goat, and Sheep skin. Our leathers are sourced from reputed tanneries and meet international quality standards.</p>
+                <p className='text-lg text-[#777777]'>At Velin International, we specialize in supplying top-quality finished and crust leather made from <br className='hidden lg:block' /> Cow, Goat, and Sheep skin. Our leathers are sourced from reputed tanneries and meet international quality standards.</p>
             </div>
 
             {/* Gallery section */}

@@ -17,7 +17,7 @@ const OrderProcedure = () => {
             _id: 2,
             title: "Contract Signing",
             description:
-                "A formal contract will be signed between you (the buyer) and the seller/manufacturer/tanner to confirm the order.This contract will also be verified and acknowledged by Tanex International to ensure smooth processing.",
+                "A formal contract will be signed between you (the buyer) and the seller/manufacturer/tanner to confirm the order.This contract will also be verified and acknowledged by Velin International to ensure smooth processing.",
             number: 2,
             color: "#93C648",
             verticalLine: true,
@@ -26,7 +26,7 @@ const OrderProcedure = () => {
             _id: 3,
             title: "Letter of Credit (L/C) Issuance",
             description:
-                "Based on the contract, the buyer will open a Letter of Credit (L/C) in favor of the seller or in favor of Tanex International (transferable). We assist in ensuring that all financial transactions comply with standard international trade practices.",
+                "Based on the contract, the buyer will open a Letter of Credit (L/C) in favor of the seller or in favor of Velin International (transferable). We assist in ensuring that all financial transactions comply with standard international trade practices.",
             number: 3,
             color: "#50B577",
             verticalLine: true,

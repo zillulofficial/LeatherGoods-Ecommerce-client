@@ -103,7 +103,7 @@ const Register = () => {
                 <div className="lg:w-1/2 mb-12 mx-auto">
                     <div className='flex justify-between items-center'>
                         <div className='mb-20'>
-                            <Link to='/'><img className="lg:w-40 w-24" src="https://i.postimg.cc/GhDYmQG9/tanex-interenational.png" alt="" /></Link>
+                            <Link to='/'><img className="lg:w-40 w-24" src="https://i.postimg.cc/cHsx9DgD/logo-of-the-website.png" alt="" /></Link>
                         </div>
                         <div className='flex gap-4 pt-3'>
                             <Link to='/login'><p className=' text-lg font-roboto'>Log In</p></Link>

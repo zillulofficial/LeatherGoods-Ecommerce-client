@@ -10,7 +10,7 @@ import useAuth from '../../Hooks/useAuth';
 
 const Login = () => {
     useEffect(() => {
-        document.title = "TANEX International | Login"
+        document.title = "Velin International | Login"
         Aos.init()
     }, [])
 
@@ -62,7 +62,7 @@ const Login = () => {
                 <div className="lg:w-1/2 md:mb-12 mx-auto">
                     <div className='flex justify-between items-center'>
                         <div className='mb-20'>
-                            <Link to='/'><img className="lg:w-40 w-24" src="https://i.postimg.cc/GhDYmQG9/tanex-interenational.png" alt="" /></Link>
+                            <Link to='/'><img className="lg:w-40 w-24" src="https://i.postimg.cc/PfWb8NTT/logo-of-the-website.png" alt="" /></Link>
                         </div>
                         <div className='flex gap-4 pt-3'>
                             <Link to='/login'><p className='text-[#0057B7] text-lg font-roboto'>Log In</p></Link>

@@ -17,9 +17,9 @@ const Footer = () => {
                     <div className='md:mx-auto'>
                         <div className='ml-3 lg:ml-12 flex-1'>
                             <div className='flex items-center mb-4'>
-                            <Link to='/'><img className="w-20" src="https://i.postimg.cc/GhDYmQG9/tanex-interenational.png" alt="" /></Link>
+                            <Link to='/'><img className="w-20" src="https://i.postimg.cc/PfWb8NTT/logo-of-the-website.png" alt="" /></Link>
                             </div>
-                            <p className='text-[#232323] text-sm'>Tanex International is a dynamic and trusted leather buying house operating from Bangladesh’s largest tannery hub.</p>
+                            <p className='text-[#232323] text-sm'>Velin International is a dynamic and trusted leather buying house operating from Bangladesh’s largest tannery hub.</p>
                             <div className='mt-5 flex gap-4 items-center'>
                                 <div className='bg-[#0057B7] flex justify-center items-center rounded-full w-8 hover:bg-white duration-500 h-8'>
                                     <Link to='https://www.facebook.com/pages/BSCIC%20Tannery%20Industrial%20Estate,%20Savar,%20Dhaka/159650511544443/'><FaFacebookF className='text-white hover:text-[#0057B7] duration-500'></FaFacebookF></Link>

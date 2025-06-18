@@ -27,7 +27,7 @@ const AboutUs = () => {
                     </div>
                     <div  data-aos="fade-left"  className="md:w-[600px] h-full mx-auto flex flex-col justify-center lg:mt-48">
                         <p className="font-bold text-3xl md:text-5xl mb-8">We are qualified <br className="lg:block hidden " />& of experience <br className="lg:block hidden " />in this field</p>
-                        <p className=" mb-5 ">Tanex International is a dynamic and trusted leather buying house operating from Bangladesh’s largest tannery hub. We have built a strong reputation for delivering premium leather to international markets.
+                        <p className=" mb-5 ">Velin International is a dynamic and trusted leather buying house operating from Bangladesh’s largest tannery hub. We have built a strong reputation for delivering premium leather to international markets.
                         </p>
                         <p className=" mb-8 mx-auto"> Our commitment to ethical sourcing, sustainability, and customer satisfaction sets us apart in the leather industry.</p>
                         <Link to='/register'>

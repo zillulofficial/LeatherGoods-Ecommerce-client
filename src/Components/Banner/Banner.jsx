@@ -33,7 +33,7 @@ const Banner = () => {
                         {/* Banner Image */}
                         <img className='w-full lg:h-[850px] md:h-[600px] h-[300px]' src="https://i.postimg.cc/T36r0JBN/banner-3.jpg" alt="" />
                         <div className='absolute top-1/4 lg:top1/3 lg:left-72 md:left-48 left-24'>
-                            <p className='text-2xl md:text-6xl lg:text-7xl text-white uppercase mb-8 '>Welcome to <br className='hidden md:block' /><span className='text-[#ffdb9f]'>Tanex </span><br className='hidden md:block' />International </p>
+                            <p className='text-2xl md:text-6xl lg:text-7xl text-white uppercase mb-8 '>Welcome to <br className='hidden md:block' /><span className='text-[#ffdb9f]'>Velin </span><br className='hidden md:block' />International </p>
 
                             <Link to='/aboutUs'>
                                 <button class="relative cursor-pointer inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#0057B7] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
@@ -75,7 +75,7 @@ const Banner = () => {
                         {/* Banner Image */}
                         <img className='w-full lg:h-[850px] md:h-[600px] h-[300px]' src="https://i.postimg.cc/yNCxTZFj/bg-4.jpg" alt="" />
                         <div className='absolute top-1/4 lg:top1/3 lg:left-72 md:left-48 left-24'>
-                            <p className='text-2xl md:text-6xl lg:text-7xl text-white uppercase mb-8 '>Discover Excellence<br className='hidden md:block' />with<span className='text-[#ffdb9f]'>Tanex </span><br className='hidden md:block' />International </p>
+                            <p className='text-2xl md:text-6xl lg:text-7xl text-white uppercase mb-8 '>Discover Excellence<br className='hidden md:block' />with <span className='text-[#ffdb9f]'>Velin </span><br className='hidden md:block' />International </p>
 
                             <Link to='/aboutUs'>
                                 <button class="relative cursor-pointer inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#0057B7] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">

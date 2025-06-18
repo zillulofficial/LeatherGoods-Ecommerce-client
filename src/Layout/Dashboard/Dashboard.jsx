@@ -23,7 +23,7 @@ const Dashboard = () => {
                     <ul
                         tabIndex={0}
                         className=" dropdown-content rounded-box z-10 ">
-                        <Link to='/'><img className="w-16 mt-8 mb-3" src="https://i.postimg.cc/GhDYmQG9/tanex-interenational.png" alt="" /></Link>
+                        <Link to='/'><img className="w-16 mt-8 mb-3" src="https://i.postimg.cc/cHsx9DgD/logo-of-the-website.png" alt="" /></Link>
 
                         <aside className="flex min-h-screen flex-col w-56 px-5  overflow-y-auto bg-white shadow-lg">
                             <div className="flex flex-col justify-between flex-1">
@@ -75,7 +75,7 @@ const Dashboard = () => {
 
                 {/* dashboard for large device */}
                 <div className="hidden md:block">
-                    <Link to='/'><img className="w-16 mb-5" src="https://i.postimg.cc/GhDYmQG9/tanex-interenational.png" alt="" /></Link>
+                    <Link to='/'><img className="w-16 mb-5" src="https://i.postimg.cc/cHsx9DgD/logo-of-the-website.png" alt="" /></Link>
                     <aside className="flex min-h-screen flex-col w-64 px-5  overflow-y-auto bg-white shadow-lg">
                         <div className="flex flex-col justify-between flex-1 ">
                             <nav className="-mx-3 space-y-6 ">

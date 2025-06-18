@@ -50,7 +50,7 @@ const Navbar = () => {
                     </div>
                     <div className='ml-3 lg:ml-12 flex-1'>
 
-                        <Link to='/'><img className="w-20" src="https://i.postimg.cc/GhDYmQG9/tanex-interenational.png" alt="" /></Link>
+                        <Link to='/'><img className="w-24" src="https://i.postimg.cc/cHsx9DgD/logo-of-the-website.png" alt="" /></Link>
 
                     </div>
                 </div>

@@ -31,7 +31,7 @@ const ProductDetails = () => {
   }, [])
 
   return (
-    <div className="relative w-full bg-white overflow-hidden pt-12 mb-12 lg:mb-30">
+    <div className="relative w-full bg-white overflow-hidden pt-12 ">
       {/* Floating Geometric Shapes */}
       {geometricShapes.map((shape) => (
         <motion.div
@@ -43,7 +43,7 @@ const ProductDetails = () => {
         />
       ))}
 
-      <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-12 pt-12">
+      <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-12 pt-12 mb-12 lg:mb-30">
         {/* Product Image */}
         <motion.img
           src={product.imageURL}
