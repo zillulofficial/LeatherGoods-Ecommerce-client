@@ -60,11 +60,11 @@ const router = createBrowserRouter([
         element: <ContactUs></ContactUs>
       },
       {
-        path: '/payment/success',
+        path: '/payment/success/:id',
         element: <PurchaseSuccess></PurchaseSuccess>
       },
       {
-        path: '/payment/failiure',
+        path: '/payment/failiure/:id',
         element: <PurchaseFailiure></PurchaseFailiure>
       },
       {

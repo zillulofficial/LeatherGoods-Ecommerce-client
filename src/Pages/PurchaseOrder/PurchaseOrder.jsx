@@ -71,16 +71,13 @@ const PurchaseOrder = () => {
 
         axios.post(`${import.meta.env.VITE_API_URL}/purchase`, newData)
             .then((res) => {
-                if (!res.url) {
+                console.log(res.data);
+                if (!res.data?.url) {
                     throw new Error("Payment gateway URL not received");
                 }
-                // window.location.replace(res.url);
-                console.log(res.data);
+                window.location.replace(res.data?.url);
+                
             })
-            .catch((err) => {
-                console.error("Fetch failed:", err.message);
-                alert(`Payment initialization failed: ${ err.message }`);
-            });
 
     };
 
