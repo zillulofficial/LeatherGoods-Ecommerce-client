@@ -31,6 +31,7 @@ import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import PurchaseOrder from './Pages/PurchaseOrder/PurchaseOrder';
 import PurchaseSuccess from './Pages/PurchaseSuccess/PurchaseSuccess';
 import PurchaseFailiure from './Pages/PurchaseFailiure/PurchaseFailiure';
+import PurchaseDetails from './Pages/Dashboard/PurchaseDetails';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
       {
         path: 'contacts',
         element: <Orders></Orders>
+      },
+      {
+        path: 'purchases',
+        element: <PurchaseDetails></PurchaseDetails>
       },
       {
         path: 'addItem',

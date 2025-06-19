@@ -9,13 +9,14 @@ import { AiTwotoneMail } from "react-icons/ai";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { MdLibraryBooks } from "react-icons/md";
 
-const Orders = () => {
+
+const PurchaseDetails = () => {
     const axiosSecure = useAxiosSecure()
     const [modalData, setModalData] = useState('')
-    const { data: orders = [], refetch } = useQuery({
-        queryKey: ['orders'],
+    const { data: purchase = [], refetch } = useQuery({
+        queryKey: ['purchase'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/orders')
+            const res = await axiosSecure.get('/purchase')
             return res.data
         }
     })
@@ -31,7 +32,7 @@ const Orders = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosSecure.delete(`/orders/${id}`)
+                axiosSecure.delete(`/purchase/${id}`)
                     .then(res => {
                         refetch()
                         if (res.data.deletedCount > 0) {
@@ -45,14 +46,14 @@ const Orders = () => {
             }
         });
     }
-    const handleModal = order => {
-        setModalData(order)
+    const handleModal = sell => {
+        setModalData(sell)
     }
-
+    console.log(purchase);
     return (
         <div className="mt-16">
             <SectionTitle
-                Heading={"Manage all Orders"}
+                Heading={"Manage all purchase"}
                 subHeading={"At a Glance"}
             ></SectionTitle>
 
@@ -65,7 +66,6 @@ const Orders = () => {
                                 <th></th>
                                 <th className="font-semibold text-white">Name</th>
                                 <th className="font-semibold text-white">Email</th>
-                                <th className="font-semibold text-white">Description</th>
                                 <th className="font-semibold text-white">See More</th>
                                 <th className="font-semibold text-white text-center">Action</th>
                             </tr>
@@ -73,33 +73,41 @@ const Orders = () => {
                         <tbody>
                             {/* row 1 */}
                             {
-                                orders.map((order, i) => <tr key={order._id}>
+                                purchase.map((sell, i) => <tr key={sell.mongoPurchaseData?._id}>
                                     <th>{i + 1}</th>
-                                    <td className=" ">{order?.name}</td>
-                                    <td>{order.email ? order?.email : "ordered without email"}</td>
-                                    <td>{order.description.substring(0, 26)}...</td>
+                                    <td className=" ">{sell.mongoPurchaseData?.buyerName}</td>
+                                    <td>{sell.mongoPurchaseData?.buyerEmail ? sell.mongoPurchaseData?.buyerEmail : "selled without email"}</td>
+                                    
                                     <td>
-                                        <button onClick={() => { document.getElementById('my_modal_5').showModal(), handleModal(order) }} className="cursor-pointer relative inline-flex items-center justify-center p-4 px-4 py-2 overflow-hidden font-medium text-[#0057B7] transition duration-300 ease-out border-2 border-[#0057B7] rounded-full shadow-md group">
+                                        <button onClick={() => { document.getElementById('my_modal_5').showModal(), handleModal(sell) }} className="cursor-pointer relative inline-flex items-center justify-center p-4 px-4 py-2 overflow-hidden font-medium text-[#0057B7] transition duration-300 ease-out bsell-2 bsell-[#0057B7] rounded-full shadow-md group">
                                             <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[#0057B7] group-hover:translate-x-0 ease">
                                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                             </span>
-                                            <span className="absolute flex items-center justify-center w-full h-full text-[#0057B7] transition-all duration-300 transform group-hover:translate-x-full ease">View Details</span>
-                                            <span className="relative invisible">View Details</span>
+                                            <span className="absolute flex items-center justify-center w-full h-full text-[#0057B7] transition-all duration-300 transform group-hover:translate-x-full ease">Details</span>
+                                            <span className="relative invisible">Details</span>
                                         </button>
 
                                     </td>
                                     <td className="text-center">
-                                        <button onClick={() => handleDelete(order._id)} className="btn btn-error"><RiDeleteBin6Line className="text-xl"></RiDeleteBin6Line></button>
+                                        <button onClick={() => handleDelete(sell._id)} className="btn btn-error"><RiDeleteBin6Line className="text-xl"></RiDeleteBin6Line></button>
                                     </td>
                                 </tr>)
                             }
                             {/* modal part */}
                             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                                 <div className="modal-box">
-                                    <h3 className="font-bold text-lg flex items-center gap-3 mb-2"><IoPersonOutline></IoPersonOutline>{modalData.name}</h3>
-                                    <p className="py-4 flex items-center gap-3"><MdOutlinePhoneInTalk className="text-xl"></MdOutlinePhoneInTalk>{modalData.phone}</p>
-                                   <p className="py-4 flex items-center gap-3"><AiTwotoneMail className="text-xl"></AiTwotoneMail> {modalData.email}</p>
-                                    <p className="py-4 flex items-center gap-3"><MdLibraryBooks className="text-xl"></MdLibraryBooks>{modalData.description}</p>
+                                    <img className="w-52" src={modalData.mongoPurchaseData?.imageURL} alt="" />
+                                    <div>
+                                        <h1 className="text-center pt-6 pb-2 text-xl text-black/60 ">All the Purchase Information</h1>
+                                        <hr className="text-slate-300 w-72 mx-auto"/>
+                                        <h3 className=" text-md  mb-2 mt-6">Buyer - {modalData.mongoPurchaseData?.buyerName}</h3>
+                                        <p className="py-4 ">Phone - {modalData.mongoPurchaseData?.buyerPhone}</p>
+                                        <p className="py-4 ">Email -  {modalData.mongoPurchaseData?.buyerEmail}</p>
+                                        <p className="py-4 ">Address - {modalData.mongoPurchaseData?.buyerAddress}</p>
+                                        <p className="py-4 ">Product Name - {modalData.mongoPurchaseData?.name}</p>
+                                        <p className="py-4 ">Product Price - {modalData.mongoPurchaseData?.price}</p>
+                                        <p className="py-4 ">Product Category - {modalData.mongoPurchaseData?.category}</p>
+                                    </div>
                                     <div className="modal-action">
                                         <form method="dialog">
                                             {/* if there is a button in form, it will close the modal */}
@@ -117,4 +125,4 @@ const Orders = () => {
     );
 };
 
-export default Orders;
+export default PurchaseDetails;
