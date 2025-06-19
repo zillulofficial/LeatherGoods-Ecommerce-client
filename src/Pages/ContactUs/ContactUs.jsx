@@ -8,16 +8,19 @@ import { FaEye } from "react-icons/fa";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
 const ContactUs = () => {
+    useEffect(() => {
+            document.title = "Velin International | Contact"
+            
+        }, [])
+
     const { register, handleSubmit, reset } = useForm()
     const { user } = useAuth()
     const axiosPublic = useAxiosPublic()
     const onSubmit = async (data) => {
 
-        // toast.success("concerns on console log", {
-        //     position: "top-center"
-        // })
         axiosPublic.post('/orders', data)
             .then(res => {
 

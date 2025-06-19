@@ -1,7 +1,13 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { MdAddChart } from "react-icons/md";
+import { useEffect } from "react";
 
 const Dashboard = () => {
+    useEffect(() => {
+            document.title = "Velin International | Dashboard"
+           
+        }, [])
+        
     return (
         <div className="flex">
             <div className="">

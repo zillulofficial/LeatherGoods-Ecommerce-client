@@ -3,10 +3,15 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemCard from "../../Components/ItemCard/ItemCard";
 
 const ProductPage = () => {
+    useEffect(() => {
+                document.title = "Velin International | Products"
+               
+            }, [])
+
     const tabs = ["Bags", "Shoes", "Pure Leather", "Other Items"];
     const { category } = useParams()
     const initialIndex = tabs.indexOf(category)
