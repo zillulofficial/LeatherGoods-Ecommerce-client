@@ -30,6 +30,7 @@ import PrivateRoute from './Routes/PrivateRoute/PrivateRoute';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import PurchaseOrder from './Pages/PurchaseOrder/PurchaseOrder';
 import PurchaseSuccess from './Pages/PurchaseSuccess/PurchaseSuccess';
+import PurchaseFailiure from './Pages/PurchaseFailiure/PurchaseFailiure';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -63,8 +64,8 @@ const router = createBrowserRouter([
         element: <PurchaseSuccess></PurchaseSuccess>
       },
       {
-        path: '/payment/fail',
-        element: <PurchaseSuccess></PurchaseSuccess>
+        path: '/payment/failiure',
+        element: <PurchaseFailiure></PurchaseFailiure>
       },
       {
         path: '/leatherCollection/:category',
