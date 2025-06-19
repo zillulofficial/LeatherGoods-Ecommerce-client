@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { IoMdEyeOff } from 'react-icons/io';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { TbBrandGithubFilled } from "react-icons/tb";
 import Swal from 'sweetalert2';
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -62,7 +61,7 @@ const Login = () => {
                 <div className="lg:w-1/2 md:mb-12 mx-auto">
                     <div className='flex justify-between items-center'>
                         <div className='mb-20'>
-                            <Link to='/'><img className="lg:w-40 w-24" src="https://i.postimg.cc/PfWb8NTT/logo-of-the-website.png" alt="" /></Link>
+                            <Link to='/'><img className="md:w-40 w-24" src="https://i.postimg.cc/PfWb8NTT/logo-of-the-website.png" alt="" /></Link>
                         </div>
                         <div className='flex gap-4 pt-3'>
                             <Link to='/login'><p className='text-[#0057B7] text-lg font-roboto'>Log In</p></Link>

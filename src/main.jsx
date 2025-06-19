@@ -28,6 +28,8 @@ import ProductPage from './Pages/ProductPage/ProductPage';
 import UpdateItem from './Pages/UpdateItem/UpdateItem';
 import PrivateRoute from './Routes/PrivateRoute/PrivateRoute';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
+import PurchaseOrder from './Pages/PurchaseOrder/PurchaseOrder';
+import PurchaseSuccess from './Pages/PurchaseSuccess/PurchaseSuccess';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -57,12 +59,25 @@ const router = createBrowserRouter([
         element: <ContactUs></ContactUs>
       },
       {
+        path: '/payment/success',
+        element: <PurchaseSuccess></PurchaseSuccess>
+      },
+      {
+        path: '/payment/fail',
+        element: <PurchaseSuccess></PurchaseSuccess>
+      },
+      {
         path: '/leatherCollection/:category',
         element: <PrivateRoute><ProductPage></ProductPage></PrivateRoute>
       },
       {
         path: '/Collection/:id',
         element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/item/${params.id}`)
+      },
+      {
+        path: '/Collection/purchase/:id',
+        element: <PrivateRoute><PurchaseOrder></PurchaseOrder></PrivateRoute>,
         loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/item/${params.id}`)
       },
     ]

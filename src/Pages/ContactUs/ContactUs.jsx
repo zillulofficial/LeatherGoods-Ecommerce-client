@@ -12,25 +12,25 @@ import { useForm } from "react-hook-form";
 const ContactUs = () => {
     const { register, handleSubmit, reset } = useForm()
     const { user } = useAuth()
-    const axiosPublic= useAxiosPublic()
-    const onSubmit = async(data) =>{
-        
+    const axiosPublic = useAxiosPublic()
+    const onSubmit = async (data) => {
+
         // toast.success("concerns on console log", {
         //     position: "top-center"
         // })
         axiosPublic.post('/orders', data)
-        .then(res=>{
-            
-            if(res.data.insertedId){
-                reset()
-                Swal.fire({
-                    title: 'Success!',
-                    text: `Order added successfully`,
-                    icon: 'success',
-                    confirmButtonText: 'Okay'
-                })
-            }
-        })
+            .then(res => {
+
+                if (res.data.insertedId) {
+                    reset()
+                    Swal.fire({
+                        title: 'Success!',
+                        text: `Order added successfully`,
+                        icon: 'success',
+                        confirmButtonText: 'Okay'
+                    })
+                }
+            })
     }
     return (
         <div>
@@ -46,7 +46,7 @@ const ContactUs = () => {
                 <div className="container mx-auto mb-24 flex flex-col-reverse gap-8 lg:gap-0 lg:flex-row">
                     <div className="flex-1/2">
                         <div className="md:w-full md:h-full h-1/2 w-3/4 mx-auto ">
-                            <iframe width="100%" height="511.48" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=511.48&amp;hl=en&amp;q=BSCIC%20Tannery%20Industrial%20Estate,%20Hemayetpur+(Tanex%20International)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                            <iframe width="100%" height="511.48" frameBorder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d456.47224228432503!2d90.35282989399713!3d23.75529691311964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf0059efb49d%3A0x2d7b0d3ab71f5af2!2sSpaandanB%20School%20(Shuchona%20Shikkha%20Kendra)!5e0!3m2!1sen!2sbd!4v1750223510972!5m2!1sen!2sbd">
                                 <a href="https://www.gps.ie/collections/drones/">buy drones</a>
                             </iframe>
                         </div>
@@ -55,15 +55,15 @@ const ContactUs = () => {
                         <div className="flex flex-col md:flex-row gap-7 mb-5">
                             <div>
                                 <p className="mb-2">Full Name</p>
-                                <input {...register("name", { required: true })} className="border rounded-md border-gray-300 pl-3 py-2" placeholder="name" type="text"/>
+                                <input {...register("name", { required: true })} className="border rounded-md border-gray-300 pl-3 py-2" placeholder="name" type="text" />
                             </div>
                             <div>
                                 <p className="mb-2">Phone</p>
-                                <input {...register("phone", { required: true })} className="border rounded-md border-gray-300 pl-3 py-2" placeholder="Enter phone" type="number"/>
+                                <input {...register("phone", { required: true })} className="border rounded-md border-gray-300 pl-3 py-2" placeholder="Enter phone" type="number" />
                             </div>
                             <div>
                                 <p className="mb-2">Email</p>
-                                <input {...register("email", { required: true })} className="border rounded-md border-gray-300 pl-3 py-2" placeholder="name@example.com" defaultValue={user?.email} type="text"/>
+                                <input {...register("email", { required: true })} className="border rounded-md border-gray-300 pl-3 py-2" placeholder="name@example.com" defaultValue={user?.email} type="text" />
                             </div>
                         </div>
                         <p className="mb-2">Elaborate You Concerns</p>
@@ -87,19 +87,19 @@ const ContactUs = () => {
                         <div className="rounded-full flex justify-center items-center bg-[#0057B7] w-10 h-10">
                             <IoLocationOutline className="text-white text-xl"></IoLocationOutline>
                         </div>
-                        <p>BSCIC Tannery Industrial Estate, Tannery Gate No#2, Horindhara,<br /> Hemayetpur, Savar, Dhaka - 1340, Bangladesh.</p>
+                        <p>Road No - 05, House No # - 05, Mohammadpur, <br className="hidden lg:block"/>Dhaka - 1207, Bangladesh</p>
                     </div>
                     <div className="flex items-center gap-3">
                         <div className="rounded-full flex justify-center items-center bg-[#0057B7] w-10 h-10">
                             <IoCallOutline className="text-white text-xl"></IoCallOutline>
                         </div>
-                        <p>+880 1775 843299</p>
+                        <p>+880 1748767639</p>
                     </div>
                     <div className="flex items-center gap-3">
                         <div className="rounded-full flex justify-center items-center bg-[#0057B7] w-10 h-10">
                             <MdMailOutline className="text-white text-xl"></MdMailOutline>
                         </div>
-                        <p>info@tanex.com.bd</p>
+                        <p>zillul.hakim100@gmail.com</p>
                     </div>
                 </div>
 

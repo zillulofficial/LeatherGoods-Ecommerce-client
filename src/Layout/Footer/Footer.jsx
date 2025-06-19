@@ -13,11 +13,11 @@ const Footer = () => {
         <footer className=" bg-[#0066ff10] pt-8">
             <div className="container px-6 py-8 mx-auto">
 
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center">
-                    <div className='md:mx-auto'>
+                <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4  items-center justify-center">
+                    <div className='lg:mx-auto'>
                         <div className='ml-3 lg:ml-12 flex-1'>
                             <div className='flex items-center mb-4'>
-                            <Link to='/'><img className="w-20" src="https://i.postimg.cc/PfWb8NTT/logo-of-the-website.png" alt="" /></Link>
+                            <Link to='/'><img className="w-32" src="https://i.postimg.cc/PfWb8NTT/logo-of-the-website.png" alt="" /></Link>
                             </div>
                             <p className='text-[#232323] text-sm'>Velin International is a dynamic and trusted leather buying house operating from Bangladesh’s largest tannery hub.</p>
                             <div className='mt-5 flex gap-4 items-center'>
@@ -34,7 +34,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className='md:mx-auto'>
+                    <div className='lg:mx-auto'>
                         <div className="text-xl font-medium text-gray-400 uppercase">
                             Pages
                         </div>
@@ -53,7 +53,7 @@ const Footer = () => {
                         </Link>
                     </div>
 
-                    <div className='md:mx-auto'>
+                    <div className='lg:mx-auto'>
                         <div className="text-xl font-medium text-gray-400 uppercase">
                             Important Links
                         </div>
@@ -71,25 +71,25 @@ const Footer = () => {
                             Link 4
                         </Link>
                     </div>
-                    <div className='md:mx-auto'>
+                    <div className='lg:mx-auto'>
                         <div className="text-xl font-medium text-gray-400 uppercase">
                             Contact Us
                         </div>
 
                         <Link to='/' className="gap-3 mt-5 text-sm font-medium text-[#232323] duration-700 hover:text-gray-300  hover:underline flex items-center">
-                            <IoMdMail className='text-lg text-[#0057B7]'></IoMdMail> info@tanex.com.bd
+                            <IoMdMail className='text-lg text-[#0057B7]'></IoMdMail> zillul.hakim100@gmail.com
                         </Link>
 
                         <Link to='/' className="gap-3 mt-5 text-sm font-medium text-[#232323] duration-700 hover:text-gray-300  hover:underline flex items-center">
-                            <IoCall className='text-lg text-[#0057B7]'></IoCall> +880 1775 843299
+                            <IoCall className='text-lg text-[#0057B7]'></IoCall> +880 1748767639
                         </Link>
 
-                        <Link to='https://tanex.com.bd/' className="gap-3 mt-5 text-sm font-medium text-[#232323] duration-700 hover:text-gray-300  hover:underline flex items-center">
-                            <FaGlobe className='text-lg text-[#0057B7]'></FaGlobe>https://tanex.com.bd/
+                        <Link to='https://my-portfolio-jade-three-64.vercel.app/' className="gap-3 mt-5 text-sm font-medium text-[#232323] duration-700 hover:text-gray-300  hover:underline flex items-center">
+                            <FaGlobe className='text-lg text-[#0057B7]'></FaGlobe>https://my-portfolio-jade-three-64.vercel.app/
                         </Link>
 
                         <Link to='/' className="gap-3 mt-5 text-sm font-medium text-[#232323] duration-700 hover:text-gray-300  hover:underline flex">
-                            <FaLocationDot className='text-2xl text-[#0057B7]'></FaLocationDot>BSCIC Tannery Industrial Estate, Tannery Gate No#2, Horindhara, Hemayetpur, Savar, Dhaka - 1340, Bangladesh.
+                            <FaLocationDot className='text-2xl text-[#0057B7]'></FaLocationDot>Road No - 05, House No # - 05, Mohammadpur, Dhaka - 1207, Bangladesh
                         </Link>
                     </div>
                 </div>
