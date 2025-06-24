@@ -32,6 +32,7 @@ import PurchaseOrder from './Pages/PurchaseOrder/PurchaseOrder';
 import PurchaseSuccess from './Pages/PurchaseSuccess/PurchaseSuccess';
 import PurchaseFailiure from './Pages/PurchaseFailiure/PurchaseFailiure';
 import PurchaseDetails from './Pages/Dashboard/PurchaseDetails';
+import CartPage from './Pages/CartPage/CartPage';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: '/leatherCollection/:category',
         element: <PrivateRoute><ProductPage></ProductPage></PrivateRoute>
+      },
+      {
+        path: '/cart',
+        element: <PrivateRoute><CartPage></CartPage></PrivateRoute>
       },
       {
         path: '/Collection/:id',
