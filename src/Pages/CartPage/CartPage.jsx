@@ -1,19 +1,19 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import useCart from '../../Hooks/useCart';
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import { FaTimes } from 'react-icons/fa';
 
-const cartItems = [
-    {
-        name: "StitchRite Groover Pro",
-        price: 6000,
-        imageURL: "http://res.cloudinary.com/dzs02ilah/image/upload/v1744196455/stitchrite-groover-pro.jpg"
-    },
-    {
-        name: "Edge Slicker",
-        price: 1500,
-        imageURL: "https://example.com/slicker.jpg"
-    }
-];
+
+const geometricShapes = Array.from({ length: 15 }).map((_, i) => ({
+    id: i,
+    top: `${Math.random() * 100}%`,
+    left: `${Math.random() * 100}%`,
+    size: Math.random() > 0.5 ? 'w-4 h-4' : 'w-3 h-3',
+    shape: Math.random() > 0.5 ? 'rounded-full' : 'rotate-45',
+}));
 const floatingVariants = {
     animate: {
         y: [0, -15, 0],
@@ -26,25 +26,45 @@ const floatingVariants = {
     },
 };
 
-const geometricShapes = Array.from({ length: 15 }).map((_, i) => ({
-    id: i,
-    top: `${Math.random() * 100}%`,
-    left: `${Math.random() * 100}%`,
-    size: Math.random() > 0.5 ? 'w-4 h-4' : 'w-3 h-3',
-    shape: Math.random() > 0.5 ? 'rounded-full' : 'rotate-45',
-}));
-
-
 const CartPage = () => {
     const navigate = useNavigate();
+    const [cart, refetch] = useCart()
+    const axiosSecure = useAxiosSecure()
 
-    const getTotalPrice = () =>
-        cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
-
+    const getTotalPrice = () => cart?.reduce((total, item) => total + Number(item.price), 0).toFixed(2)
+    
     const handleConfirm = () => {
         alert('Redirecting to payment...');
         navigate('/purchase');
     };
+
+    const handleDelete = id => {
+        console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axiosSecure.delete(`/carts/${id}`)
+                    .then(res => {
+                        refetch()
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Item has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
 
     return (
         <div className="relative min-h-screen bg-white px-4 py-20 w-full flex flex-col items-center overflow-hidden">
@@ -81,14 +101,15 @@ const CartPage = () => {
             </motion.h1>
 
             <AnimatePresence>
-                {cartItems.length > 0 ? (
+                {cart.length > 0 ? (
                     <motion.div
                         className="w-full max-w-4xl space-y-6 relative z-10"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                     >
-                        {cartItems.map((item, index) => (
+                        {cart.map((item, index) => (
+
                             <motion.div
                                 key={index}
                                 className="flex flex-col sm:flex-row justify-between items-center bg-gray-50 p-6 rounded-xl shadow-md backdrop-blur-lg"
@@ -102,10 +123,37 @@ const CartPage = () => {
                                     alt={item.name}
                                     className="w-24 h-24 object-contain mb-4 sm:mb-0"
                                 />
-                                <div className="text-center sm:text-left">
-                                    <h3 className="text-xl font-semibold text-gray-800">{item.name}</h3>
-                                    <p className="text-gray-500 mt-2">Price: ৳{item.price}</p>
+                                <div className="flex flex-col w-full items-end sm:text-left">
+                                    <motion.div
+                                        className='mb-4'
+                                        onClick={() => handleDelete(item?._id)}
+                                        style={{
+                                            width: "30px",
+                                            height: "30px",
+                                            borderRadius: "50%",
+                                            backgroundColor: "rgba(255, 255, 255, 0.2)",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            cursor: "pointer",
+                                        }}
+                                        whileHover={{
+                                            rotate: 180,
+                                            backgroundColor: "rgba(255, 255, 255, 0.3)",
+                                            transition: { duration: 0.6 }
+                                        }}
+                                    >
+                                        <FaTimes
+                                            className='flex justify-end '
+                                            size={18}
+                                            color="crimson"
+                                            style={{ transition: "all 0.3s ease" }}
+                                        />
+                                    </motion.div>
+                                    <h3 className=" text-xl font-semibold text-gray-800">{item.name}</h3>
+                                    <p className="text-gray-500 mt-2">Price: ৳ {item.price}</p>
                                 </div>
+
                             </motion.div>
                         ))}
 

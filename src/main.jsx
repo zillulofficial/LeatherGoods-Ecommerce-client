@@ -33,6 +33,7 @@ import PurchaseSuccess from './Pages/PurchaseSuccess/PurchaseSuccess';
 import PurchaseFailiure from './Pages/PurchaseFailiure/PurchaseFailiure';
 import PurchaseDetails from './Pages/Dashboard/PurchaseDetails';
 import CartPage from './Pages/CartPage/CartPage';
+import WishlistPage from './Pages/WishlistPage/WishlistPage';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
       {
         path: '/cart',
         element: <PrivateRoute><CartPage></CartPage></PrivateRoute>
+      },
+      {
+        path: '/wishlist',
+        element: <PrivateRoute><WishlistPage></WishlistPage></PrivateRoute>
       },
       {
         path: '/Collection/:id',
