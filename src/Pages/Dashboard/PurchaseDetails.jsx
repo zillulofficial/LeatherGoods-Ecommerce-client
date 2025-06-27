@@ -49,7 +49,7 @@ const PurchaseDetails = () => {
     const handleModal = sell => {
         setModalData(sell)
     }
-    // console.log(purchase);
+    console.log(purchase);
     return (
         <div className="mt-16">
             <SectionTitle
@@ -73,11 +73,11 @@ const PurchaseDetails = () => {
                         <tbody>
                             {/* row 1 */}
                             {
-                                purchase.map((sell, i) => <tr key={sell.mongoPurchaseData?._id}>
+                                purchase.map((sell, i) => <tr key={sell.defaultData?._id}>
                                     <th>{i + 1}</th>
-                                    <td className=" ">{sell.mongoPurchaseData?.buyerName}</td>
-                                    <td>{sell.mongoPurchaseData?.buyerEmail ? sell.mongoPurchaseData?.buyerEmail : "selled without email"}</td>
-                                    
+                                    <td className=" ">{sell.defaultData?.buyerName}</td>
+                                    <td>{sell.defaultData?.buyerEmail ? sell.defaultData?.buyerEmail : "selled without email"}</td>
+
                                     <td>
                                         <button onClick={() => { document.getElementById('my_modal_5').showModal(), handleModal(sell) }} className="cursor-pointer relative inline-flex items-center justify-center p-4 px-4 py-2 overflow-hidden font-medium text-[#0057B7] transition duration-300 ease-out bsell-2 bsell-[#0057B7] rounded-full shadow-md group">
                                             <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[#0057B7] group-hover:translate-x-0 ease">
@@ -96,17 +96,28 @@ const PurchaseDetails = () => {
                             {/* modal part */}
                             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                                 <div className="modal-box">
-                                    <img className="w-52" src={modalData.mongoPurchaseData?.imageURL} alt="" />
+                                    <div className="py-4">
+                                        
+                                    </div>
                                     <div>
                                         <h1 className="text-center pt-6 pb-2 text-xl text-black/60 ">All the Purchase Information</h1>
-                                        <hr className="text-slate-300 w-72 mx-auto"/>
-                                        <h3 className=" text-md  mb-2 mt-6">Buyer - {modalData.mongoPurchaseData?.buyerName}</h3>
-                                        <p className="py-4 ">Phone - {modalData.mongoPurchaseData?.buyerPhone}</p>
-                                        <p className="py-4 ">Email -  {modalData.mongoPurchaseData?.buyerEmail}</p>
-                                        <p className="py-4 ">Address - {modalData.mongoPurchaseData?.buyerAddress}</p>
-                                        <p className="py-4 ">Product Name - {modalData.mongoPurchaseData?.name}</p>
-                                        <p className="py-4 ">Product Price - {modalData.mongoPurchaseData?.price}</p>
-                                        <p className="py-4 ">Product Category - {modalData.mongoPurchaseData?.category}</p>
+                                        <hr className="text-slate-300 w-72 mx-auto" />
+                                        <div className="py-4">
+                                            Products Name -
+                                            <p className="w-2/3 mx-auto">
+                                                {
+                                                    modalData.defaultData?.cartItems?.map((item, i) => {
+
+                                                        return <p key={i} >* {item?.name} - ( {item?.category} )</p>
+                                                    })
+                                                }
+                                            </p>
+                                        </div>
+                                        <h3 className=" text-md  mb-2 mt-6">Buyer - {modalData.defaultData?.buyerName}</h3>
+                                        <p className="py-4 ">Phone - {modalData.defaultData?.buyerPhone}</p>
+                                        <p className="py-4 ">Email -  {modalData.defaultData?.buyerEmail}</p>
+                                        <p className="py-4 ">Address - {modalData.defaultData?.buyerAddress}</p>
+                                        <p className="py-4 ">Product Price - {modalData.defaultData?.price}</p>
                                     </div>
                                     <div className="modal-action">
                                         <form method="dialog">
