@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useLocation, useParams } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useCart from "../../Hooks/useCart";
+import { FaTimes } from "react-icons/fa";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const floatingVariants = {
     animate: {
@@ -27,11 +30,23 @@ const geometricShapes = Array.from({ length: 15 }).map((_, i) => ({
 
 
 const PurchaseOrder = () => {
+    const location = useLocation();
+    const axiosSecure = useAxiosSecure()
+    const { totalPrice } = location.state || {};
+
+    const [total, setTotal] = useState(0);
+    const [itemDetails, setItemDetails] = useState('');
+
+    useEffect(() => {
+        if (totalPrice !== undefined) {
+            setTotal(totalPrice);
+        }
+    }, [totalPrice])
     const { register, handleSubmit, watch } = useForm();
+    const [cart] = useCart()
     const product = useLoaderData()
     const { user } = useAuth()
-    const { id } = useParams()
-    const [price, setPrice] = useState('')
+    const [price, setPrice] = useState(0)
 
     const selectedCurrency = watch('currency', 'BDT');
 
@@ -51,9 +66,15 @@ const PurchaseOrder = () => {
         const symbol = symbols[selectedCurrency] || '৳';
         const converted = (priceBDT * rate).toFixed(2);
 
-        return `${symbol} ${converted}`;
+        return `${converted} ${symbol}`;
 
     };
+    const cartSummary = cart.map(item => ({
+        image: item?.imageURL,
+        name: item?.name,
+        price: item?.price,
+        category: item?.category
+    }));
 
     const onSubmit = (data) => {
         const rates = {
@@ -66,7 +87,7 @@ const PurchaseOrder = () => {
         const converted = (product?.price * rate).toFixed(2);
         setPrice(converted)
 
-        const newData = { ...data, productId: id, price: price }
+        const newData = { ...data, cartItems: cartSummary, price: price }
         // console.log('Purchase Data:', newData);
 
         axios.post(`${import.meta.env.VITE_API_URL}/purchase`, newData)
@@ -76,7 +97,8 @@ const PurchaseOrder = () => {
                     throw new Error("Payment gateway URL not received");
                 }
                 window.location.replace(res.data?.url);
-                
+                // axiosSecure.delete('/carts')
+
             })
 
     };
@@ -102,15 +124,40 @@ const PurchaseOrder = () => {
                     transition={{ duration: 0.8 }}
                 >
                     {/* Product Info */}
+
                     <div className="flex flex-col items-center justify-center p-10 text-center">
-                        <img
-                            src={product.imageURL}
-                            alt={product.name}
-                            className="w-full max-w-[300px] object-contain mb-6"
-                        />
-                        <h2 className="text-3xl font-bold text-gray-900">{product.name}</h2>
+                        <h3 className="mb-4 text-3xl font-semibold dms text-black/50">Items Selected</h3>
+                        {cart.map((item, index) => (
+
+                            <motion.div
+                                key={index}
+                                className="w-full p-3 mb-2  backdrop-blur-lg"
+                                initial={{ x: -100, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                exit={{ x: 100, opacity: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                            >
+
+                                <div className=" sm:text-left">
+                                    <div className="flex justify-between w-full">
+                                        <div>
+                                            <h3 className=" text-xl  text-gray-800">{item?.name}</h3>
+                                            <p className="text-gray-500 mt-2">Price: ৳ {item?.price}</p>
+                                        </div>
+                                        <p className={`py-1 text-center ${item?.category === 'Bags' && ' text-emerald-500 bg-emerald-100/60'
+                                            } ${item?.category === 'Shoes' && ' text-orange-500 bg-orange-100/60'
+                                            } ${item?.category === 'Pure Leather' && ' text-amber-500 bg-amber-100/60'
+                                            } ${item?.category === 'Other Items' && ' text-blue-500 bg-blue-100/60'
+                                            } rounded-full text-xs w-22 h-6
+                                                            `}>{item?.category}</p>
+                                    </div>
+                                </div>
+
+                            </motion.div>
+                        ))}
+                        <h2 className="text-3xl font-bold text-gray-900"></h2>
                         <p className="text-2xl text-green-700 mt-4">
-                            {convertPrice(product.price)}
+                            Total: {convertPrice(total)}
                         </p>
                     </div>
 

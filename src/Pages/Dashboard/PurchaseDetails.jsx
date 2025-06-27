@@ -49,7 +49,7 @@ const PurchaseDetails = () => {
     const handleModal = sell => {
         setModalData(sell)
     }
-    console.log(purchase);
+    // console.log(purchase);
     return (
         <div className="mt-16">
             <SectionTitle

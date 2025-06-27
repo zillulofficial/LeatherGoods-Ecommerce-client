@@ -32,10 +32,12 @@ const CartPage = () => {
     const axiosSecure = useAxiosSecure()
 
     const getTotalPrice = () => cart?.reduce((total, item) => total + Number(item.price), 0).toFixed(2)
-    
-    const handleConfirm = () => {
-        alert('Redirecting to payment...');
-        navigate('/purchase');
+
+    const handleConfirm = (price) => {
+        console.log(price);
+        navigate('/purchase', {
+        state: { totalPrice: price } // 🛒 send the price here
+    });
     };
 
     const handleDelete = id => {
@@ -164,16 +166,16 @@ const CartPage = () => {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                             >
-                                Total: ৳{getTotalPrice()}
+                                Total: ৳ {getTotalPrice()}
                             </motion.p>
 
                             <motion.button
-                                onClick={handleConfirm}
+                                onClick={()=>handleConfirm(getTotalPrice())}
                                 className="px-8 py-4 bg-black text-white text-lg font-bold rounded-full shadow-lg hover:shadow-2xl"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                Confirm Purchase
+                                Purchase
                             </motion.button>
                         </div>
                     </motion.div>
