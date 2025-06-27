@@ -1,18 +1,13 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import useWish from '../../Hooks/useWish';
+import useAuth from '../../Hooks/useAuth';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import { FaTimes } from 'react-icons/fa';
 
-const wishlistItems = [
-    {
-        name: "StitchRite Groover Pro",
-        price: 6000,
-        imageURL: "http://res.cloudinary.com/dzs02ilah/image/upload/v1744196455/stitchrite-groover-pro.jpg"
-    },
-    {
-        name: "Edge Slicker",
-        price: 1500,
-        imageURL: "https://example.com/slicker.jpg"
-    }
-];
+
 const floatingVariants = {
     animate: {
         y: [0, -15, 0],
@@ -35,6 +30,79 @@ const geometricShapes = Array.from({ length: 15 }).map((_, i) => ({
 
 
 const WishlistPage = () => {
+    const [wishlist, refetch] = useWish()
+    const { user } = useAuth()
+    const axiosSecure = useAxiosSecure()
+    const navigate = useNavigate()
+
+    const handleCart = data => {
+
+        if (user && user?.email) {
+            const cartInfo = {
+                ...data, email: user?.email
+            }
+
+            axiosSecure.post('/carts', cartInfo)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.insertedId) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: `${data?.name} Added successfully`,
+                            icon: 'success',
+                            confirmButtonText: 'Okay'
+                        })
+                        // refetch the cart
+                        refetch()
+                    }
+                })
+
+        }
+        else {
+            Swal.fire({
+                title: "You Are not Logged in",
+                text: "Please login to add to cart!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Login!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: location } })
+                }
+            });
+        }
+
+    }
+
+    const handleDelete = id => {
+        console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axiosSecure.delete(`/wishlist/${id}`)
+                    .then(res => {
+                        refetch()
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Item has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
     return (
         <div className="relative min-h-screen bg-white w-full px-4 py-20 flex flex-col items-center overflow-hidden">
             {geometricShapes.map((shape) => (
@@ -69,14 +137,14 @@ const WishlistPage = () => {
             </motion.h1>
 
             <AnimatePresence>
-                {wishlistItems.length > 0 ? (
+                {wishlist.length > 0 ? (
                     <motion.div
                         className="w-full max-w-4xl space-y-6 relative z-10"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                     >
-                        {wishlistItems.map((item, index) => (
+                        {wishlist.map((item, index) => (
                             <motion.div
                                 key={index}
                                 className="flex flex-col sm:flex-row justify-between items-center bg-gray-50 p-6 rounded-xl shadow-md backdrop-blur-lg"
@@ -94,7 +162,7 @@ const WishlistPage = () => {
                                     <h3 className="text-xl font-semibold text-gray-800">{item.name}</h3>
                                     <p className="text-gray-500 mt-2 mb-4">Price: ৳{item.price}</p>
                                     <motion.button
-
+                                        onClick={() => handleCart(item)}
                                         className="px-6 py-2 bg-black text-white text-sm font-medium rounded-full shadow hover:bg-gray-900"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
@@ -102,6 +170,32 @@ const WishlistPage = () => {
                                         Add to Cart
                                     </motion.button>
                                 </div>
+                                <motion.div
+                                    className='mb-4'
+                                    onClick={() => handleDelete(item?._id)}
+                                    style={{
+                                        width: "30px",
+                                        height: "30px",
+                                        borderRadius: "50%",
+                                        backgroundColor: "rgba(255, 255, 255, 0.2)",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        cursor: "pointer",
+                                    }}
+                                    whileHover={{
+                                        rotate: 180,
+                                        backgroundColor: "rgba(255, 255, 255, 0.3)",
+                                        transition: { duration: 0.6 }
+                                    }}
+                                >
+                                    <FaTimes
+                                        className='flex justify-end text-2xl'
+                                        size={18}
+                                        color="crimson"
+                                        style={{ transition: "all 0.3s ease" }}
+                                    />
+                                </motion.div>
                             </motion.div>
                         ))}
                     </motion.div>

@@ -84,10 +84,20 @@ const PurchaseOrder = () => {
         };
 
         const rate = rates[selectedCurrency] || 1;
-        const converted = (product?.price * rate).toFixed(2);
+        const converted = (total * rate).toFixed(2);
         setPrice(converted)
 
-        const newData = { ...data, cartItems: cartSummary, price: price }
+        const newData = {
+            ...data,
+            cartItems: cartSummary,
+            price: price, 
+            currency: selectedCurrency,
+            buyerName: data.buyerName, 
+            buyerEmail: data.buyerEmail,
+            buyerPhone: data.buyerPhone,
+            buyerAddress: data.buyerAddress
+
+        }
         // console.log('Purchase Data:', newData);
 
         axios.post(`${import.meta.env.VITE_API_URL}/purchase`, newData)
@@ -97,7 +107,7 @@ const PurchaseOrder = () => {
                     throw new Error("Payment gateway URL not received");
                 }
                 window.location.replace(res.data?.url);
-                // axiosSecure.delete('/carts')
+                axiosSecure.delete('/carts')
 
             })
 
