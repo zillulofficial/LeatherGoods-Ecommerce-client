@@ -108,6 +108,7 @@ const PurchaseOrder = () => {
                 }
                 window.location.replace(res.data?.url);
                 axiosSecure.delete('/carts')
+                .then(res=>console.log(res))
 
             })
 

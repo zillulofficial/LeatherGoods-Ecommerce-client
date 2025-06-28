@@ -3,12 +3,14 @@ import { RiShoppingCart2Fill, RiShoppingCartFill } from "react-icons/ri";
 import useAuth from "../../Hooks/useAuth";
 import useAdmin from "../../Hooks/useAdmin";
 import useCart from "../../Hooks/useCart";
+import useWish from "../../Hooks/useWish";
 
 const Navbar = () => {
     const { user, logout } = useAuth()
     const navigate = useNavigate()
     const [isAdmin] = useAdmin()
     const [cart]= useCart()
+    const [wishlist]= useWish()
 
 
     const navOptions = <>
@@ -25,7 +27,7 @@ const Navbar = () => {
                 "cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>Dashboard</div></NavLink> : ''
         }
         <NavLink to='/wishlist' className={({ isActive }) => isActive ? "text-[#0057B7] cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto" :
-            "cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto"}><div>Wish List</div></NavLink>
+            "cursor-pointer roboto font-medium text-xs  lg:hover:border-b-2 hover:border-[#0057B7] duration-75 ease-in py-2 px-3 mx-3 uppercase font-roboto relative"}><div>Wish List</div><span className="bg-slate-600/20 px-2 py-1 rounded-md -right-10 lg:-top-1 lg:-right-4 absolute">{wishlist?.length}</span></NavLink>
 
     </>
 
@@ -70,7 +72,7 @@ const Navbar = () => {
                                     
                                     <RiShoppingCartFill className="text-2xl"></RiShoppingCartFill>
                                     <div className="bg-[#84ACFA] px-2 py-1 rounded-md left-3  absolute">{cart?.length}</div>
-                                    {/* <div className="badge badge-primary absolute">{cart?.length}</div> */}
+                                    
                                 </div>
                             </Link>
                         </li>

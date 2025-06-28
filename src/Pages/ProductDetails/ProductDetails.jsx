@@ -169,7 +169,7 @@ const ProductDetails = () => {
           {/* <Link Link to={`/Collection/purchase/${product._id}`}>
             
           </Link> */}
-          <div className="flex justify-center items-center  gap-5">
+          <div className="flex justify-center lg:justify-start items-center   gap-5">
             <button
               onClick={() => handleCart(product)}
               disabled={product.status !== 'On Stock'}
