@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { IoMdMail } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
-import { FaGlobe } from "react-icons/fa";
+import { FaGlobe, FaLinkedin } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
@@ -14,27 +14,27 @@ const Footer = () => {
             <div className="container px-6 py-8 mx-auto">
 
                 <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4  items-center justify-center">
-                    <div className='lg:mx-auto'>
-                        <div className='ml-3 lg:ml-12 flex-1'>
-                            <div className='flex items-center mb-4'>
-                            <Link to='/'><img className="w-32" src="https://i.postimg.cc/PfWb8NTT/logo-of-the-website.png" alt="" /></Link>
+                    <div className='lg:mx-auto h-full'>
+                        <div className=' flex-1'>
+                            <div className='flex items-center mb-5'>
+                            <Link to='/'><img className="w-24" src="https://i.postimg.cc/cHsx9DgD/logo-of-the-website.png" alt="" /></Link>
                             </div>
                             <p className='text-[#232323] text-sm'>Velin International is a dynamic and trusted leather buying house operating from Bangladesh’s largest tannery hub.</p>
                             <div className='mt-5 flex gap-4 items-center'>
                                 <div className='bg-[#0057B7] flex justify-center items-center rounded-full w-8 hover:bg-white duration-500 h-8'>
-                                    <Link to='https://www.facebook.com/pages/BSCIC%20Tannery%20Industrial%20Estate,%20Savar,%20Dhaka/159650511544443/'><FaFacebookF className='text-white hover:text-[#0057B7] duration-500'></FaFacebookF></Link>
+                                    <Link to='https://www.facebook.com/zill.hossin/'><FaFacebookF className='text-white hover:text-[#0057B7] duration-500'></FaFacebookF></Link>
                                 </div>
                                 <div className='bg-[#0057B7] flex justify-center items-center rounded-full w-8 h-8 hover:bg-white duration-500'>
-                                    <Link><RiInstagramFill className='text-lg text-white hover:text-[#0057B7] duration-500'></RiInstagramFill></Link>
+                                    <Link to='/https://www.instagram.com/zillul_official/'><RiInstagramFill className='text-lg text-white hover:text-[#0057B7] duration-500'></RiInstagramFill></Link>
                                 </div>
                                 <div className='bg-[#0057B7] flex justify-center items-center rounded-full w-8 h-8 hover:bg-white duration-500'>
-                                    <Link><FaTwitter className='text-white hover:text-[#0057B7] duration-500'></FaTwitter></Link>
+                                    <Link to={`https://www.linkedin.com/in/md-zillul-hakim-162311282/`}><FaLinkedin className='text-white hover:text-[#0057B7] duration-500'></FaLinkedin></Link>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className='lg:mx-auto'>
+                    <div className='lg:mx-auto h-full'>
                         <div className="text-xl font-medium text-gray-400 uppercase">
                             Pages
                         </div>
@@ -53,25 +53,22 @@ const Footer = () => {
                         </Link>
                     </div>
 
-                    <div className='lg:mx-auto'>
+                    <div className='lg:mx-auto h-full '>
                         <div className="text-xl font-medium text-gray-400 uppercase">
                             Important Links
                         </div>
 
-                        <Link to='/' className="block mt-5 text-sm font-medium text-[#232323] duration-700 hover:text-gray-300  hover:underline">
-                            Link 1
+                        <Link to='https://www.facebook.com/profile.php?id=61576806280645' className="block mt-5 text-sm font-medium text-[#232323] duration-700 hover:text-gray-300  hover:underline">
+                            InnovaTech Limited
                         </Link>
-                        <Link to='/' className="block mt-3 text-sm font-medium text-[#232323] duration-700 hover:text-gray-300  hover:underline">
-                            Link 2
+                        <Link to='https://www.facebook.com/profile.php?id=61567155205708' className="block mt-3 text-sm font-medium text-[#232323] duration-700 hover:text-gray-300  hover:underline">
+                            MarketBlitz Tech & Offshore Limited
                         </Link>
-                        <Link to='/' className="block mt-3 text-sm font-medium text-[#232323] duration-700 hover:text-gray-300  hover:underline">
-                            link 3
-                        </Link>
-                        <Link to='/' className="block mt-3 text-sm font-medium text-[#232323] duration-700 hover:text-gray-300  hover:underline">
-                            Link 4
+                        <Link to='https://www.fiverr.com/sellers/zillul_creator/edit' className="block mt-3 text-sm font-medium text-[#232323] duration-700 hover:text-gray-300  hover:underline">
+                            Fiver
                         </Link>
                     </div>
-                    <div className='lg:mx-auto'>
+                    <div className='lg:mx-auto h-full'>
                         <div className="text-xl font-medium text-gray-400 uppercase">
                             Contact Us
                         </div>
