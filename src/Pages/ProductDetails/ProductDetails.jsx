@@ -170,15 +170,39 @@ const ProductDetails = () => {
             
           </Link> */}
           <div className="flex justify-center items-center  gap-5">
-            <button onClick={() => handleCart(product)} class="cursor-pointer relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-black transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
-              <span class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-black group-hover:h-full"></span>
-              <span class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
-                <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            <button
+              onClick={() => handleCart(product)}
+              disabled={product.status !== 'On Stock'}
+              className={`cursor-pointer relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold transition-all duration-150 ease-in-out rounded group
+    ${product.status !== 'On Stock' ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-gray-50 text-black hover:pl-10 hover:pr-6'}
+  `}
+            >
+              <span className={`absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out 
+    ${product.status !== 'On Stock' ? 'bg-gray-400' : 'bg-black group-hover:h-full'}
+  `}></span>
+
+              <span className={`absolute right-0 pr-4 duration-200 ease-out 
+    ${product.status === 'On Stock' ? 'group-hover:translate-x-12' : ''}
+  `}>
+                <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </span>
-              <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+
+              <span className={`absolute left-0 pl-2.5 -translate-x-12 
+    ${product.status === 'On Stock' ? 'group-hover:translate-x-0' : ''}
+    ease-out duration-200
+  `}>
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </span>
-              <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Add to Cart</span>
+
+              <span className={`relative w-full text-left transition-colors duration-200 ease-in-out 
+    ${product.status === 'On Stock' ? 'group-hover:text-white' : ''}
+  `}>
+                {product.status !== 'On Stock' ? 'Unavailable' : 'Add to Cart'}
+              </span>
             </button>
             <span onClick={() => handleWishlist(product)} className="cursor-pointer hover:scale-110 transition-all ease duration-500"><FaHeart className="text-3xl text-red-300"></FaHeart></span>
           </div>
